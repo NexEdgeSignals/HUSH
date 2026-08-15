@@ -5,10 +5,10 @@ buildscript {
         }
         // Required for the Gradle plugin
         google()
-        jcenter()
+        mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.2'
+        classpath 'com.android.tools.build:gradle:4.1.3'
         classpath files('libs/gradle-witness.jar')
     }
 }
@@ -21,7 +21,7 @@ repositories {
         url "https://repo1.maven.org/maven2/"
     }
     google()
-    jcenter()
+    mavenCentral()
     mavenLocal()
 }
 
@@ -219,5 +219,6 @@ if (propFile.canRead()){
 }
 
 tasks.withType(JavaCompile){
-    options.warnings = false
+    options.warnings = false           
 }
+     
