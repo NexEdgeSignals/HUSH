@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">Silence</string>
+    <string name="app_name" translatable="false">HUSH</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="delete">Delete</string>
@@ -31,7 +31,7 @@
     <string name="ApplicationPreferencesActivity_sms_enabled">Incoming SMS enabled</string>
     <string name="ApplicationPreferencesActivity_tap_to_change_your_default_sms_app">Tap to change your default SMS app</string>
     <string name="ApplicationPreferencesActivity_sms_disabled">Incoming SMS disabled</string>
-    <string name="ApplicationPreferencesActivity_tap_to_make_silence_your_default_sms_app">Tap to make Silence your default SMS app</string>
+    <string name="ApplicationPreferencesActivity_tap_to_make_silence_your_default_sms_app">Tap to make HUSH your default SMS app</string>
     <string name="ApplicationPreferencesActivity_on">on</string>
     <string name="ApplicationPreferencesActivity_On">On</string>
     <string name="ApplicationPreferencesActivity_off">off</string>
@@ -55,8 +55,8 @@
 
     <!-- AttchmentManager -->
     <string name="AttachmentManager_cant_open_media_selection">Can\'t find an app to select media.</string>
-    <string name="AttachmentManager_silence_requires_the_external_storage_permission_in_order_to_attach_photos_videos_or_audio">Silence requires the External Storage permission in order to attach photos, videos, or audio, but it has been permanently denied. Please continue to the app settings menu, select \"Permissions\", and enable \"Storage\".</string>
-    <string name="AttachmentManager_silence_requires_contacts_permission_in_order_to_attach_contact_information">Silence requires Contacts permission in order to attach contact information, but it has been permanently denied. Please continue to the app settings menu, select \"Permissions\", and enable \"Contacts\".</string>
+    <string name="AttachmentManager_silence_requires_the_external_storage_permission_in_order_to_attach_photos_videos_or_audio">HUSH requires the External Storage permission in order to attach photos, videos, or audio, but it has been permanently denied. Please continue to the app settings menu, select \"Permissions\", and enable \"Storage\".</string>
+    <string name="AttachmentManager_silence_requires_contacts_permission_in_order_to_attach_contact_information">HUSH requires Contacts permission in order to attach contact information, but it has been permanently denied. Please continue to the app settings menu, select \"Permissions\", and enable \"Contacts\".</string>
 
     <!-- AttachmentTypeSelectorAdapter -->
     <string name="AttachmentTypeSelectorAdapter_camera">Camera</string>
@@ -83,12 +83,12 @@
     <string name="ConversationItem_click_for_details">Tap for details</string>
     <string name="ConversationItem_unable_to_open_media">Can\'t find an app able to open this media.</string>
     <string name="ConversationItem_via_s">via %s</string>
-    <string name="ConversationItem_xmpp_address_update_silence">XMPP address. Update Silence to enable this feature.</string>
+    <string name="ConversationItem_xmpp_address_update_silence">XMPP address. Update HUSH to enable this feature.</string>
 
     <!-- ConversationActivity -->
     <string name="ConversationActivity_initiate_secure_session_question">Initiate secure session?</string>
     <string name="ConversationActivity_initiate_secure_session_with_s_question">Initiate secure session with %s?</string>
-    <string name="ConversationActivity_detected_silence_initiate_session_question">Message received from someone who also has Silence, initiate a secure encrypted session?</string>
+    <string name="ConversationActivity_detected_silence_initiate_session_question">Message received from someone who also has HUSH, initiate a secure encrypted session?</string>
     <string name="ConversationActivity_abort_secure_session_confirmation">End secure session?</string>
     <string name="ConversationActivity_are_you_sure_that_you_want_to_abort_this_secure_session_question">Are you sure you want to end this secure session?</string>
     <string name="ConversationActivity_delete_thread_question">Delete conversation?</string>
@@ -124,7 +124,7 @@
     <string name="ConversationActivity_mms_not_supported_message">This message cannot be sent since your carrier doesn\'t support MMS.</string>
     <string name="ConversationActivity_specify_recipient">Please choose a contact</string>
     <string name="ConversationActivity_attachment_exceeds_size_limits">Attachment exceeds size limits.</string>
-    <string name="ConversationActivity_silence_needs_sms_permission_in_order_to_send_an_sms">Silence needs SMS permission in order to send an SMS, but it has been permanently denied. Please continue to app settings, select \"Permissions\" and enable \"SMS\".</string>
+    <string name="ConversationActivity_silence_needs_sms_permission_in_order_to_send_an_sms">HUSH needs SMS permission in order to send an SMS, but it has been permanently denied. Please continue to app settings, select \"Permissions\" and enable \"SMS\".</string>
 
     <!-- ConversationAdapter -->
     <plurals name="ConversationAdapter_n_unread_messages">
@@ -224,19 +224,19 @@
 
     <!-- WelcomeActivity -->
     <string name="WelcomeActivity_improve_your_privacy_talk_to_everyone">Improve your privacy, talk to everyone</string>
-    <string name="WelcomeActivity_encrypt_your_messages">Encrypt your messages with Silence users while using regular SMS/MMS messages with others.</string>
-    <string name="WelcomeActivity_silence_needs_access_to_your_contacts_phone_status_and_sms">Silence needs access to your contacts, phone status and SMS messages in order to connect with friends, manage your encryption keys and chat.</string>
+    <string name="WelcomeActivity_encrypt_your_messages">Encrypt your messages with HUSH users while using regular SMS/MMS messages with others.</string>
+    <string name="WelcomeActivity_silence_needs_access_to_your_contacts_phone_status_and_sms">HUSH needs access to your contacts, phone status and SMS messages in order to connect with friends, manage your encryption keys and chat.</string>
     <string name="WelcomeActivity_continue">Continue</string>
     <string name="WelcomeActivity_action_required">Action required!</string>
-    <string name="WelcomeActivity_you_need_to_grant_some_permissions_to_silence">You need to grant some permissions to Silence.</string>
-    <string name="WelcomeActivity_you_need_to_grant_some_permissions_to_silence_in_order_to_continue_to_use_it">You need to grant some permissions to Silence in order to continue to use it. Tap to continue.</string>
-    <string name="WelcomeActivity_silence_needs_the_phone_permission_in_order_to_manage_encryption_keys_and_bind_them_to_your_sim_cards_and_sms_permission_in_order_to_receive_sms_messages">Silence needs the Phone permission in order to manage encryption keys and bind them to your SIM cards, and SMS permission in order to receive SMS messages.</string>
-    <string name="WelcomeActivity_silence_requires_the_phone_and_sms_permissions_in_order_to_work_but_it_has_been_permanently_denied">Silence needs the Phone and SMS permissions in order to work, but they has been permanently denied. Please continue to app settings, select \"Permissions\", then enable \"Phone\" and \"SMS\".</string>
+    <string name="WelcomeActivity_you_need_to_grant_some_permissions_to_silence">You need to grant some permissions to HUSH.</string>
+    <string name="WelcomeActivity_you_need_to_grant_some_permissions_to_silence_in_order_to_continue_to_use_it">You need to grant some permissions to HUSH in order to continue to use it. Tap to continue.</string>
+    <string name="WelcomeActivity_silence_needs_the_phone_permission_in_order_to_manage_encryption_keys_and_bind_them_to_your_sim_cards_and_sms_permission_in_order_to_receive_sms_messages">HUSH needs the Phone permission in order to manage encryption keys and bind them to your SIM cards, and SMS permission in order to receive SMS messages.</string>
+    <string name="WelcomeActivity_silence_requires_the_phone_and_sms_permissions_in_order_to_work_but_it_has_been_permanently_denied">HUSH needs the Phone and SMS permissions in order to work, but they has been permanently denied. Please continue to app settings, select \"Permissions\", then enable \"Phone\" and \"SMS\".</string>
     
     <!-- ExportFragment -->
     <string name="ExportFragment_export">Export</string>
     <string name="ExportFragment_export_plaintext_to_storage">Export plaintext to storage?</string>
-    <string name="ExportFragment_warning_this_will_export_the_contents_of_your_messages_to_storage_in_plaintext">Warning, this will export the contents of your Silence messages to storage in plaintext.</string>
+    <string name="ExportFragment_warning_this_will_export_the_contents_of_your_messages_to_storage_in_plaintext">Warning, this will export the contents of your HUSH messages to storage in plaintext.</string>
     <string name="ExportFragment_cancel">Cancel</string>
     <string name="ExportFragment_exporting">Exporting</string>
     <string name="ExportFragment_exporting_plaintext_to_storage">Exporting plaintext to storage…</string>
@@ -265,13 +265,13 @@
     <!-- ImportFragment -->
     <string name="ImportFragment_import_system_sms_database">Import system SMS database?</string>
     <string name="ImportFragment_this_will_import_messages_from_the_system">This will import
-        messages from the system\'s default SMS database to Silence. If you\'ve imported
+        messages from the system\'s default SMS database to HUSH. If you\'ve imported
         the system\'s SMS database before, importing again will result in duplicated messages.
     </string>
     <string name="ImportFragment_import">Import</string>
     <string name="ImportFragment_cancel">Cancel</string>
     <string name="ImportFragment_restore_encrypted_backup">Restore encrypted backup?</string>
-    <string name="ImportFragment_restoring_an_encrypted_backup_will_completely_replace_your_existing_keys">Restoring an encrypted backup will completely replace your existing keys, preferences, and messages. You will lose any information that is in your current Silence installation but not in the backup. Silence will stop after the import.</string>
+    <string name="ImportFragment_restoring_an_encrypted_backup_will_completely_replace_your_existing_keys">Restoring an encrypted backup will completely replace your existing keys, preferences, and messages. You will lose any information that is in your current HUSH installation but not in the backup. HUSH will stop after the import.</string>
     <string name="ImportFragment_import_plaintext_backup">Import plaintext backup?</string>
     <string name="ImportFragment_this_will_import_messages_from_a_plaintext_backup">This will import
         messages from a plaintext backup. If you\'ve previously imported this backup,
@@ -284,17 +284,17 @@
     <string name="ImportFragment_import_complete">Import complete!</string>
     <string name="ImportFragment_restoring_encrypted_backup">Restoring encrypted backup…</string>
     <string name="ImportFragment_no_encrypted_backup_found">No encrypted backup found!</string>
-    <string name="ImportExportFragment_silence_needs_the_sms_permission_in_order_to_import_sms_messages">Silence needs the SMS permission in order to import SMS messages, but it has been permanently denied. Please continue to app settings, select \"Permissions\", and enable \"SMS\".</string>
-    <string name="ImportExportFragment_silence_needs_the_sms_permission_in_order_to_import_sms_messages_toast">Silence needs the SMS permission in order to import SMS messages</string>
-    <string name="ImportExportFragment_silence_needs_the_storage_permission_in_order_to_read_from_external_storage_but_it_has_been_permanently_denied">Silence needs the Storage permission in order to read from external storage, but it has been permanently denied. Please continue to app settings, select \"Permissions\", then enable \"Storage\".</string>
-    <string name="ImportExportFragment_silence_needs_the_storage_permission_in_order_to_read_from_external_storage">Silence needs the Storage permission in order to read from external storage.</string>
-    <string name="ImportExportFragment_silence_needs_the_storage_permission_in_order_to_write_to_external_storage_but_it_has_been_permanently_denied">Silence needs the Storage permission in order to write to external storage, but it has been permanently denied. Please continue to app settings, select \"Permissions\", then enable \"Storage\".</string>
-    <string name="ImportExportFragment_silence_needs_the_storage_permission_in_order_to_write_to_external_storage">Silence needs the Storage permission in order to write to external storage.</string>
+    <string name="ImportExportFragment_silence_needs_the_sms_permission_in_order_to_import_sms_messages">HUSH needs the SMS permission in order to import SMS messages, but it has been permanently denied. Please continue to app settings, select \"Permissions\", and enable \"SMS\".</string>
+    <string name="ImportExportFragment_silence_needs_the_sms_permission_in_order_to_import_sms_messages_toast">HUSH needs the SMS permission in order to import SMS messages</string>
+    <string name="ImportExportFragment_silence_needs_the_storage_permission_in_order_to_read_from_external_storage_but_it_has_been_permanently_denied">HUSH needs the Storage permission in order to read from external storage, but it has been permanently denied. Please continue to app settings, select \"Permissions\", then enable \"Storage\".</string>
+    <string name="ImportExportFragment_silence_needs_the_storage_permission_in_order_to_read_from_external_storage">HUSH needs the Storage permission in order to read from external storage.</string>
+    <string name="ImportExportFragment_silence_needs_the_storage_permission_in_order_to_write_to_external_storage_but_it_has_been_permanently_denied">HUSH needs the Storage permission in order to write to external storage, but it has been permanently denied. Please continue to app settings, select \"Permissions\", then enable \"Storage\".</string>
+    <string name="ImportExportFragment_silence_needs_the_storage_permission_in_order_to_write_to_external_storage">HUSH needs the Storage permission in order to write to external storage.</string>
 
     <!-- KeyScanningActivity -->
     <string name="KeyScanningActivity_no_scanned_key_found_exclamation">No scanned key found!</string>
     <string name="KeyScanningActivity_install_barcode_Scanner">Install Barcode Scanner?</string>
-    <string name="KeyScanningActivity_this_application_requires_barcode_scanner_would_you_like_to_install_it">Silence needs Barcode Scanner for QR codes.</string>
+    <string name="KeyScanningActivity_this_application_requires_barcode_scanner_would_you_like_to_install_it">HUSH needs Barcode Scanner for QR codes.</string>
 
     <!-- MessageDetailsRecipient -->
     <string name="MessageDetailsRecipient_failed_to_send">Failed to send</string>
@@ -311,8 +311,8 @@
     <string name="NotificationMmsMessageRecord_error_downloading_mms_message">Error downloading MMS message, tap to retry</string>
 
     <!-- MessageRecord -->
-    <string name="MessageRecord_message_encrypted_with_a_legacy_protocol_version_that_is_no_longer_supported">Received a message encrypted using an old version of Silence that is no longer supported. Please ask the sender to upgrade to the most recent version and resend the message.</string>
-    <string name="MessageRecord_the_exchange_message_you_got_came_from_a_version_of_silence_that_is_too_outdated">The exchange message you got came from a version of Silence that is too outdated to communicate with your version. You must send it manually to start a secure session. Tap to send a key exchange message.</string>
+    <string name="MessageRecord_message_encrypted_with_a_legacy_protocol_version_that_is_no_longer_supported">Received a message encrypted using an old version of HUSH that is no longer supported. Please ask the sender to upgrade to the most recent version and resend the message.</string>
+    <string name="MessageRecord_the_exchange_message_you_got_came_from_a_version_of_silence_that_is_too_outdated">The exchange message you got came from a version of HUSH that is too outdated to communicate with your version. You must send it manually to start a secure session. Tap to send a key exchange message.</string>
     <string name="MessageRecord_left_group">You have left the group.</string>
     <string name="MessageRecord_updated_group">Updated the group.</string>
     <string name="MessageRecord_key_exchange_message">Key exchange message</string>
@@ -324,13 +324,13 @@
 
     <!-- PassphrasePromptActivity -->
     <string name="PassphrasePromptActivity_enter_passphrase">Enter passphrase</string>
-    <string name="PassphrasePromptActivity_watermark_content_description">Silence icon</string>
+    <string name="PassphrasePromptActivity_watermark_content_description">HUSH icon</string>
     <string name="PassphrasePromptActivity_invalid_passphrase_exclamation">Invalid passphrase!</string>
 
     <!-- ConfirmIdentityDialog -->
     <string name="ConfirmIdentityDialog_the_signature_on_this_key_exchange_is_different">The
         identifying key material for %1$s has changed. This could either mean that someone is trying to
-        intercept your communication, or that %2$s simply re-installed Silence and now has a new
+        intercept your communication, or that %2$s simply re-installed HUSH and now has a new
         identity key.
     </string>
     <string name="ConfirmIdentityDialog_you_may_wish_to_verify_this_contact">You may wish to verify this contact.</string>
@@ -428,7 +428,7 @@
     <!-- KeyCachingService -->
     <string name="KeyCachingService_silence_passphrase_cached">Tap to open.</string>
     <string name="KeyCachingService_silence_passphrase_cached_with_lock">Tap to open, or tap the lock to close.</string>
-    <string name="KeyCachingService_passphrase_cached">Silence is unlocked</string>
+    <string name="KeyCachingService_passphrase_cached">HUSH is unlocked</string>
     <string name="KeyCachingService_lock">Lock with passphrase</string>
 
     <!-- MessageNotifier -->
@@ -453,11 +453,11 @@
     <string name="NotificationChannel_other">Other</string>
 
     <!-- QuickResponseService -->
-    <string name="QuickResponseService_quick_response_unavailable_when_Silence_is_locked">Quick response unavailable when Silence is locked!</string>
+    <string name="QuickResponseService_quick_response_unavailable_when_Silence_is_locked">Quick response unavailable when HUSH is locked!</string>
     <string name="QuickResponseService_problem_sending_message">Problem sending message!</string>
 
     <!-- SingleRecipientNotificationBuilder -->
-    <string name="SingleRecipientNotificationBuilder_silence" translatable="false">Silence</string>
+    <string name="SingleRecipientNotificationBuilder_silence" translatable="false">HUSH</string>
     <string name="SingleRecipientNotificationBuilder_new_message">New message</string>
 
     <!-- VideoPlayer -->
@@ -485,7 +485,7 @@
 
     <!-- ContactSelectionListFragment-->
     <string name="ContactSelectionlistFragment_select_for">Select for</string>
-    <string name="ContactSelectionListFragment_silence_requires_the_contacts_permission_in_order_to_display_your_contacts">Silence requires the Contacts permission in order to display your contacts, but it has been permanently denied. Please continue to the app settings menu, select \"Permissions\", and enable \"Contacts\".</string>
+    <string name="ContactSelectionListFragment_silence_requires_the_contacts_permission_in_order_to_display_your_contacts">HUSH requires the Contacts permission in order to display your contacts, but it has been permanently denied. Please continue to the app settings menu, select \"Permissions\", and enable \"Contacts\".</string>
 
     <!-- blocked_contacts_fragment -->
     <string name="blocked_contacts_fragment__no_blocked_contacts">No blocked contacts</string>
@@ -494,7 +494,7 @@
     <string name="contact_selection_recent_activity__no_recent_calls">No recent calls.</string>
 
     <!-- contact_selection_list_fragment -->
-    <string name="contact_selection_list_fragment__silence_needs_access_to_your_contacts_in_order_to_display_them">Silence needs access to your contacts in order to display them.</string>
+    <string name="contact_selection_list_fragment__silence_needs_access_to_your_contacts_in_order_to_display_them">HUSH needs access to your contacts in order to display them.</string>
     <string name="contact_selection_list_fragment__show_contacts">Show Contacts</string>
 
     <!-- conversation_title_view -->
@@ -553,7 +553,7 @@
     <string name="log_submit_activity__posting_logs">Posting the logs to gist…</string>
 
     <!-- database_migration_activity -->
-    <string name="database_migration_activity__would_you_like_to_import_your_existing_text_messages">Would you like to import your existing text messages into Silence\'s encrypted database?</string>
+    <string name="database_migration_activity__would_you_like_to_import_your_existing_text_messages">Would you like to import your existing text messages into HUSH\'s encrypted database?</string>
     <string name="database_migration_activity__the_default_system_database_will_not_be_modified">The default system database will not be modified or altered in any way.</string>
     <string name="database_migration_activity__skip">Skip</string>
     <string name="database_migration_activity__import">Import</string>
@@ -588,7 +588,7 @@
     <string name="prompt_passphrase_activity__unlock">Unlock</string>
 
     <!-- prompt_mms_activity -->
-    <string name="prompt_mms_activity__silence_requires_mms_settings_to_deliver_media_and_group_messages">Silence requires MMS settings to deliver media and group messages through your wireless carrier. Your device does not make this information available, which is occasionally true for locked devices and other restrictive configurations.</string>
+    <string name="prompt_mms_activity__silence_requires_mms_settings_to_deliver_media_and_group_messages">HUSH requires MMS settings to deliver media and group messages through your wireless carrier. Your device does not make this information available, which is occasionally true for locked devices and other restrictive configurations.</string>
     <string name="prompt_mms_activity__to_send_media_and_group_messages_tap_ok">To send media and group messages, tap \'OK\' and complete the requested settings. The MMS settings for your carrier can generally be located by searching for \'your carrier APN\'. You will only need to do this once.</string>
 
     <!-- recipient_preferences_activity -->
@@ -671,8 +671,8 @@
     <string name="preferences__sms_mms">SMS and MMS</string>
     <string name="preferences__pref_all_sms_title">Receive all SMS</string>
     <string name="preferences__pref_all_mms_title">Receive all MMS</string>
-    <string name="preferences__use_silence_for_viewing_and_storing_all_incoming_text_messages">Use Silence for viewing and storing all incoming text messages</string>
-    <string name="preferences__use_silence_for_viewing_and_storing_all_incoming_multimedia_messages">Use Silence for viewing and storing all incoming multimedia messages</string>
+    <string name="preferences__use_silence_for_viewing_and_storing_all_incoming_text_messages">Use HUSH for viewing and storing all incoming text messages</string>
+    <string name="preferences__use_silence_for_viewing_and_storing_all_incoming_multimedia_messages">Use HUSH for viewing and storing all incoming multimedia messages</string>
     <string name="preferences__keyboard_settings">Keyboard options</string>
     <string name="preferences__disable_emoji_drawer">Disable emoji drawer</string>
     <string name="preferences__enable_this_option_if_your_keyboard_supports_emojis">Enable this option if your keyboard supports emojis.</string>
@@ -756,11 +756,11 @@
     <string name="preferences__default">Default</string>
     <string name="preferences__language">Language</string>
     <string name="preferences__make_default_sms_app">Set as default SMS app</string>
-    <string name="preferences__make_silence_the_default_sms_mms_app">Make Silence the default SMS/MMS application for your system.</string>
+    <string name="preferences__make_silence_the_default_sms_mms_app">Make HUSH the default SMS/MMS application for your system.</string>
     <string name="preferences__submit_debug_log">Submit debug log</string>
     <string name="preferences__support_wifi_calling">\'Wi-Fi Calling\' compatibility mode</string>
     <string name="preferences__enable_if_your_device_supports_sms_mms_delivery_over_wifi">Enable if your device uses SMS/MMS delivery over Wi-Fi (only enable when \'Wi-Fi Calling\' is enabled on your device).</string>
-    <string name="preferences__about">About Silence</string>
+    <string name="preferences__about">About HUSH</string>
     <string name="preferences__about_version">Version %s</string>
     <string name="preferences__privacy_policy">Privacy policy</string>
     <string name="preferences__incognito_keyboard">Incognito keyboard</string>
@@ -777,7 +777,7 @@
     <string name="preferences__automatically_retrieve_mms_when_roaming">Automatically retrieve MMS when roaming</string>
     <string name="preferences_chats__message_trimming">Message trimming</string>
     <string name="preferences_advanced__use_system_emoji">Use system emoji</string>
-    <string name="preferences_advanced__disable_silences_built_in_emoji_support">Disable Silence\'s built-in emoji support</string>
+    <string name="preferences_advanced__disable_silences_built_in_emoji_support">Disable HUSH\'s built-in emoji support</string>
     <string name="preferences_advanced__always_ask_for_sim_card">Always ask for SIM card</string>
     <string name="preferences_advanced__always_ask_for_the_sim_card_to_use_when_sending_messages">Always ask for the SIM card to use when sending messages</string>
 
@@ -888,10 +888,10 @@
 
     <!-- reminder_header -->
     <string name="reminder_header_sms_default_title">Use as default SMS app?</string>
-    <string name="reminder_header_sms_default_text_mandatory">Silence must be your default SMS/MMS app to receive messages.</string>
+    <string name="reminder_header_sms_default_text_mandatory">HUSH must be your default SMS/MMS app to receive messages.</string>
     <string name="reminder_header_sms_default_button">SET</string>
     <string name="reminder_header_sms_import_title">Import system SMS?</string>
-    <string name="reminder_header_sms_import_text">Tap to copy your phone\'s SMS messages into Silence\'s encrypted database.</string>
+    <string name="reminder_header_sms_import_text">Tap to copy your phone\'s SMS messages into HUSH\'s encrypted database.</string>
     <string name="reminder_header_sms_import_button">IMPORT</string>
     <string name="reminder_header_rate_title">Rate this app</string>
     <string name="reminder_header_rate_text">If you enjoy using this app, please take a moment to help us by rating it.</string>
@@ -906,7 +906,7 @@
     <string name="MediaPreviewActivity_cant_display">Failed to preview this image</string>
     <string name="MediaPreviewActivity_unssuported_media_type">Unsupported media type</string>
     <string name="MediaPreviewActivity_draft">Draft</string>
-    <string name="MediaPreviewActivity_silence_needs_the_storage_permission_in_order_to_write_to_external_storage_but_it_has_been_permanently_denied">Silence needs the Storage permission in order to save to external storage, but it has been permanently denied. Please continue to app settings, select \"Permissions\", and enable \"Storage\".</string>
+    <string name="MediaPreviewActivity_silence_needs_the_storage_permission_in_order_to_write_to_external_storage_but_it_has_been_permanently_denied">HUSH needs the Storage permission in order to save to external storage, but it has been permanently denied. Please continue to app settings, select \"Permissions\", and enable \"Storage\".</string>
     <string name="MediaPreviewActivity_unable_to_write_to_external_storage_without_permission">Unable to save to external storage without permissions</string>
 
     <!-- media_preview -->

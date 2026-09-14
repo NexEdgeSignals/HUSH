@@ -1,5 +1,5 @@
 include ':com.amulyakhare.textdrawable'
-project(':com.amulyakhare.textdrawable').projectDir = new File(rootDir, 'libs/com.amulyakhare.textdrawable')
+project(':com.amulyakhare.textdrawable').projectDir = new File(rootDir, 'libs/com.amulyakhare.textdrawable/library')
 
 include ':org.whispersystems.jobmanager'
 project(':org.whispersystems.jobmanager').projectDir = new File(rootDir, 'libs/org.whispersystems.jobmanager')

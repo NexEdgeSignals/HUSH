@@ -35,10 +35,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Browser;
 import android.provider.ContactsContract;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.view.WindowCompat;
-import android.support.v7.app.AlertDialog;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.WindowCompat;
+import androidx.appcompat.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -403,28 +403,27 @@ public class ConversationActivity extends PassphraseRequiredActionBarActivity
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
     super.onOptionsItemSelected(item);
-    switch (item.getItemId()) {
-    case R.id.menu_call:                          handleDial(getRecipients().getPrimaryRecipient()); return true;
-    case R.id.menu_delete_conversation:           handleDeleteConversation();                        return true;
-    case R.id.menu_archive_conversation:          handleArchiveConversation();                       return true;
-    case R.id.menu_add_attachment:                handleAddAttachment();                             return true;
-    case R.id.menu_view_media:                    handleViewMedia();                                 return true;
-    case R.id.menu_add_to_contacts:               handleAddToContacts();                             return true;
-    case R.id.menu_start_secure_session:          handleStartSecureSession();                        return true;
-    case R.id.menu_start_secure_session_dual_sim: handleStartSecureSession();                        return true;
-    case R.id.menu_abort_session:                 handleAbortSecureSession();                        return true;
-    case R.id.menu_abort_session_dual_sim:        handleAbortSecureSession();                        return true;
-    case R.id.menu_verify_identity:               handleVerifyIdentity();                            return true;
-    case R.id.menu_verify_identity_dual_sim:      handleVerifyIdentity();                            return true;
-    case R.id.menu_group_recipients:              handleDisplayGroupRecipients();                    return true;
-    case R.id.menu_distribution_broadcast:        handleDistributionBroadcastEnabled(item);          return true;
-    case R.id.menu_distribution_conversation:     handleDistributionConversationEnabled(item);       return true;
-    case R.id.menu_invite:                        handleInviteLink();                                return true;
-    case R.id.menu_mute_notifications:            handleMuteNotifications();                         return true;
-    case R.id.menu_unmute_notifications:          handleUnmuteNotifications();                       return true;
-    case R.id.menu_conversation_settings:         handleConversationSettings();                      return true;
-    case android.R.id.home:                       handleReturnToConversationList();                  return true;
-    }
+    int itemId = item.getItemId();
+    if      (itemId == R.id.menu_call)                          { handleDial(getRecipients().getPrimaryRecipient()); return true; }
+    else if (itemId == R.id.menu_delete_conversation)           { handleDeleteConversation();                        return true; }
+    else if (itemId == R.id.menu_archive_conversation)          { handleArchiveConversation();                       return true; }
+    else if (itemId == R.id.menu_add_attachment)                { handleAddAttachment();                             return true; }
+    else if (itemId == R.id.menu_view_media)                    { handleViewMedia();                                 return true; }
+    else if (itemId == R.id.menu_add_to_contacts)                { handleAddToContacts();                             return true; }
+    else if (itemId == R.id.menu_start_secure_session)          { handleStartSecureSession();                        return true; }
+    else if (itemId == R.id.menu_start_secure_session_dual_sim) { handleStartSecureSession();                        return true; }
+    else if (itemId == R.id.menu_abort_session)                 { handleAbortSecureSession();                        return true; }
+    else if (itemId == R.id.menu_abort_session_dual_sim)        { handleAbortSecureSession();                        return true; }
+    else if (itemId == R.id.menu_verify_identity)               { handleVerifyIdentity();                            return true; }
+    else if (itemId == R.id.menu_verify_identity_dual_sim)      { handleVerifyIdentity();                            return true; }
+    else if (itemId == R.id.menu_group_recipients)              { handleDisplayGroupRecipients();                    return true; }
+    else if (itemId == R.id.menu_distribution_broadcast)        { handleDistributionBroadcastEnabled(item);          return true; }
+    else if (itemId == R.id.menu_distribution_conversation)     { handleDistributionConversationEnabled(item);       return true; }
+    else if (itemId == R.id.menu_invite)                        { handleInviteLink();                                return true; }
+    else if (itemId == R.id.menu_mute_notifications)            { handleMuteNotifications();                         return true; }
+    else if (itemId == R.id.menu_unmute_notifications)          { handleUnmuteNotifications();                       return true; }
+    else if (itemId == R.id.menu_conversation_settings)         { handleConversationSettings();                      return true; }
+    else if (itemId == android.R.id.home)                       { handleReturnToConversationList();                  return true; }
 
     return false;
   }
@@ -1065,9 +1064,15 @@ public class ConversationActivity extends PassphraseRequiredActionBarActivity
       }
     };
 
-    registerReceiver(securityUpdateReceiver,
-                     new IntentFilter(SecurityEvent.SECURITY_UPDATE_EVENT),
-                     KeyCachingService.KEY_PERMISSION, null);
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+      registerReceiver(securityUpdateReceiver,
+                       new IntentFilter(SecurityEvent.SECURITY_UPDATE_EVENT),
+                       KeyCachingService.KEY_PERMISSION, null, Context.RECEIVER_NOT_EXPORTED);
+    } else {
+      registerReceiver(securityUpdateReceiver,
+                       new IntentFilter(SecurityEvent.SECURITY_UPDATE_EVENT),
+                       KeyCachingService.KEY_PERMISSION, null);
+    }
   }
 
   //////// Helper Methods

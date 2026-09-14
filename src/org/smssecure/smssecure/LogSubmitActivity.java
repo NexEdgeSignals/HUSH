@@ -1,7 +1,7 @@
 package org.smssecure.smssecure;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
+import androidx.fragment.app.FragmentTransaction;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -37,8 +37,8 @@ public class LogSubmitActivity extends BaseActionBarActivity implements SubmitLo
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
     super.onOptionsItemSelected(item);
-    switch (item.getItemId()) {
-    case android.R.id.home:
+    int itemId = item.getItemId();
+    if (itemId == android.R.id.home) {
       finish();
       return true;
     }

@@ -65,8 +65,10 @@ public class NewConversationActivity extends ContactSelectionActivity {
   public boolean onOptionsItemSelected(MenuItem item) {
     super.onOptionsItemSelected(item);
 
-    switch (item.getItemId()) {
-      case android.R.id.home: super.onBackPressed(); return true;
+    int itemId = item.getItemId();
+    if (itemId == android.R.id.home) {
+      super.onBackPressed();
+      return true;
     }
 
     return false;

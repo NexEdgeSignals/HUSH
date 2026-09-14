@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
 import android.os.PowerManager;
 import android.util.Log;
 
@@ -103,7 +104,11 @@ public class MmsRadio {
       if (connectivityListener == null) {
         IntentFilter filter  = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
         connectivityListener = new ConnectivityListener();
-        context.registerReceiver(connectivityListener, filter);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+          context.registerReceiver(connectivityListener, filter, Context.RECEIVER_EXPORTED);
+        } else {
+          context.registerReceiver(connectivityListener, filter);
+        }
       }
 
       Util.wait(this, 30000);

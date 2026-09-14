@@ -5,12 +5,12 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 
-import org.iilab.IilabEngineeringRSA2048Pin;
+
 import org.smssecure.smssecure.service.KeyCachingService;
 import org.smssecure.smssecure.util.SilencePreferences;
 
-import info.guardianproject.GuardianProjectRSA4096;
-import info.guardianproject.trustedintents.TrustedIntents;
+
+
 
 public class PanicResponderActivity extends Activity {
 
@@ -22,13 +22,11 @@ public class PanicResponderActivity extends Activity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    TrustedIntents trustedIntents = TrustedIntents.get(this);
-    // Guardian Project Ripple
-    trustedIntents.addTrustedSigner(GuardianProjectRSA4096.class);
-    // Amnesty International's Panic Button, made by iilab.org
-    trustedIntents.addTrustedSigner(IilabEngineeringRSA2048Pin.class);
-
-    Intent intent = trustedIntents.getIntentFromTrustedSender(this);
+    String trustedPackage = SilencePreferences.getPanicTrustedPackage(this);
+    String callingPackage  = getCallingPackage();
+    Intent intent = (trustedPackage != null && trustedPackage.equals(callingPackage))
+            ? getIntent()
+            : null;
     if (intent != null
             && !SilencePreferences.isPasswordDisabled(this)
             && PANIC_TRIGGER_ACTION.equals(intent.getAction())) {

@@ -3,8 +3,8 @@ package org.smssecure.smssecure.components.emoji;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
-import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
+import androidx.preference.PreferenceManager;
+import androidx.annotation.NonNull;
 import android.util.Log;
 
 import com.fasterxml.jackson.databind.type.CollectionType;

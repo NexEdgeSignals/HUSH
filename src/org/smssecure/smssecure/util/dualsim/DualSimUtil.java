@@ -6,7 +6,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import android.support.v4.app.NotificationCompat;
+import androidx.core.app.NotificationCompat;
 import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
 import android.util.Log;
@@ -122,10 +122,10 @@ public class DualSimUtil {
                                     .setContentText(context.getString(R.string.DualSimUtil__a_new_key_has_been_generated))
                                     .setStyle(new NotificationCompat.BigTextStyle().bigText(context.getString(R.string.DualSimUtil__a_new_key_has_been_generated_for_that_new_sim_card)))
                                     .setAutoCancel(true)
-                                    .setVisibility(Notification.VISIBILITY_PUBLIC)
+                                    .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                                     .setContentIntent(PendingIntent.getActivity(context.getApplicationContext(), 0,
                                                                                 targetIntent,
-                                                                                PendingIntent.FLAG_UPDATE_CURRENT))
+                                                                                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE))
                                     .build();
     ServiceUtil.getNotificationManager(context).notify(NOTIFICATION_ID, notification);
   }

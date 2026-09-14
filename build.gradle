@@ -1,28 +1,23 @@
 buildscript {
     repositories {
-        maven {
-            url "https://repo1.maven.org/maven2"
-        }
-        // Required for the Gradle plugin
         google()
         mavenCentral()
+
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.3'
-        classpath files('libs/gradle-witness.jar')
+        classpath 'com.android.tools.build:gradle:8.1.4'
     }
 }
 
 apply plugin: 'com.android.application'
-apply plugin: 'witness'
 
-repositories {
-    maven {
-        url "https://repo1.maven.org/maven2/"
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        mavenLocal()
+
     }
-    google()
-    mavenCentral()
-    mavenLocal()
 }
 
 subprojects {
@@ -32,102 +27,91 @@ subprojects {
 }
 
 dependencies {
-    def supportVersion = '27.0.0'
+    def supportVersion = '1.6.1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
-    compile "com.android.support:appcompat-v7:$supportVersion"
-    compile "com.android.support:recyclerview-v7:$supportVersion"
-    compile "com.android.support:design:$supportVersion"
-    compile "com.android.support:support-v13:$supportVersion"
-    compile "com.android.support:cardview-v7:$supportVersion"
-    compile "com.android.support:preference-v7:$supportVersion"
-    compile "com.android.support:preference-v14:$supportVersion"
-    compile "com.android.support:gridlayout-v7:$supportVersion"
-    compile ("com.android.support:gridlayout-v7:$supportVersion") {
-        exclude module: 'support-v4'
-    }
-    compile 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation "androidx.appcompat:appcompat:$supportVersion"
+    implementation "androidx.recyclerview:recyclerview:1.3.2"
+    implementation "com.google.android.material:material:1.11.0"
+    implementation "androidx.legacy:legacy-support-v13:1.0.0"
+    implementation "androidx.cardview:cardview:1.0.0"
+    implementation "androidx.preference:preference:1.2.1"
+    implementation "androidx.gridlayout:gridlayout:1.0.0"
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
-    compile 'se.emilsjolander:stickylistheaders:2.7.0'
-    compile 'com.jpardogo.materialtabstrip:library:1.0.9'
-    compile 'info.guardianproject.trustedintents:trustedintents:0.2'
-    compile 'org.apache.httpcomponents:httpclient-android:4.3.5'
-    compile 'com.github.chrisbanes.photoview:library:1.2.3'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.makeramen:roundedimageview:2.1.0'
-    compile 'com.pnikosis:materialish-progress:1.5'
-    compile project (':org.greenrobot.eventbus')
-    compile 'pl.tajchert:waitingdots:0.1.0'
-    compile 'com.melnykov:floatingactionbutton:1.3.0'
-    compile 'com.google.zxing:android-integration:3.1.0'
-    compile ('com.davemorrissey.labs:subsampling-scale-image-view:3.6.0') {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    }
+    implementation 'se.emilsjolander:stickylistheaders:2.7.0'
+    implementation 'com.jpardogo.materialtabstrip:library:1.0.9'
+    //implementation 'info.guardianproject.trustedintents:trustedintents:0.2'
+    implementation 'org.apache.httpcomponents:httpclient-android:4.3.5'
+    implementation 'com.github.chrisbanes.photoview:library:1.2.3'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'com.makeramen:roundedimageview:2.1.0'
+    implementation 'com.pnikosis:materialish-progress:1.5'
+    implementation project (':org.greenrobot.eventbus')
+    implementation 'pl.tajchert:waitingdots:0.1.0'
+    implementation 'com.melnykov:floatingactionbutton:1.3.0'
+    implementation 'com.google.zxing:android-integration:3.1.0'
+    implementation 'com.davemorrissey.labs:subsampling-scale-image-view:3.6.0'
 
-    compile 'com.squareup.dagger:dagger:1.2.2'
+    implementation 'com.squareup.dagger:dagger:1.2.2'
     annotationProcessor 'com.squareup.dagger:dagger-compiler:1.2.2'
     compileOnly 'com.squareup.dagger:dagger-compiler:1.2.2'
 
-    compile ("com.doomonafireball.betterpickers:library:1.5.3") {
-        exclude group: 'com.android.support', module: 'support-v4'
-    }
+    implementation 'com.doomonafireball.betterpickers:library:1.5.3'
 
-    compile project (path: ':org.whispersystems.jobmanager')
-    compile project (path: ':org.whispersystems.libpastelog')
-    compile project (path: ':org.whispersystems.libsignal')
+    implementation project (path: ':org.whispersystems.jobmanager')
+    implementation project (path: ':org.whispersystems.libpastelog')
+    implementation project (path: ':org.whispersystems.libsignal')
 
-    compile 'com.annimon:stream:1.2.1'
-    compile ('com.takisoft.fix:colorpicker:0.9.1') {
-        exclude group: 'com.android.support', module: 'appcompat-v7'
-        exclude group: 'com.android.support', module: 'recyclerview-v7'
-    }
+    implementation 'com.annimon:stream:1.2.1'
+    implementation 'com.takisoft.preferencex:preferencex-colorpicker:1.1.0'
 
-    compile 'com.fasterxml.jackson.core:jackson-annotations:2.8.7'
-    compile 'com.fasterxml.jackson.core:jackson-core:2.8.7'
-    compile 'com.fasterxml.jackson.core:jackson-databind:2.8.7'
-    compile 'com.googlecode.libphonenumber:libphonenumber:8.3.3'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.8.7'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.8.7'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.8.7'
+    implementation 'com.googlecode.libphonenumber:libphonenumber:8.3.3'
 
-    compile project (':com.amulyakhare.textdrawable')
+    implementation project (':com.amulyakhare.textdrawable')
 
-    compile ('com.klinkerapps:android-smsmms:5.1.4')
+    implementation 'com.klinkerapps:android-smsmms:5.1.4'
 
-    testCompile 'junit:junit:4.12'
-    testCompile 'org.assertj:assertj-core:1.7.1'
-    testCompile 'org.mockito:mockito-core:1.9.5'
-    testCompile 'org.powermock:powermock-api-mockito:1.6.1'
-    testCompile 'org.powermock:powermock-module-junit4:1.6.1'
-    testCompile 'org.powermock:powermock-module-junit4-rule:1.6.1'
-    testCompile 'org.powermock:powermock-classloading-xstream:1.6.1'
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.assertj:assertj-core:1.7.1'
+    testImplementation 'org.mockito:mockito-core:1.9.5'
+    testImplementation 'org.powermock:powermock-api-mockito:1.6.1'
+    testImplementation 'org.powermock:powermock-module-junit4:1.6.1'
+    testImplementation 'org.powermock:powermock-module-junit4-rule:1.6.1'
+    testImplementation 'org.powermock:powermock-classloading-xstream:1.6.1'
 
-    androidTestCompile 'com.android.support:multidex:1.0.2'
-    androidTestCompile 'com.android.support:multidex-instrumentation:1.0.2'
-    androidTestCompile 'com.google.dexmaker:dexmaker:1.2'
-    androidTestCompile 'com.google.dexmaker:dexmaker-mockito:1.2'
-    androidTestCompile ('org.assertj:assertj-core:1.7.1') {
-        exclude group: 'org.hamcrest', module: 'hamcrest-core'
-    }
-    androidTestCompile ('com.squareup.assertj:assertj-android:1.0.0') {
-        exclude group: 'org.hamcrest',        module: 'hamcrest-core'
-        exclude group: 'com.android.support', module: 'support-annotations'
-    }
-}
+    androidTestImplementation 'androidx.multidex:multidex:2.0.1'
+    androidTestImplementation 'com.google.dexmaker:dexmaker:1.2'
+    androidTestImplementation 'com.google.dexmaker:dexmaker-mockito:1.2'
+    androidTestImplementation 'org.assertj:assertj-core:1.7.1'
+    androidTestImplementation 'com.squareup.assertj:assertj-android:1.0.0'
 
-dependencyVerification {
-    verify = [
-            
-    ]
+
+
+
 }
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion '27.0.0'
+    namespace 'org.smssecure.smssecure'
+    compileSdk 34
     useLibrary 'org.apache.http.legacy'
+    useLibrary 'android.test.runner'
+    useLibrary 'android.test.base'
+    useLibrary 'android.test.mock'
+    buildFeatures {
+        buildConfig true
+    }
 
     defaultConfig {
+        applicationId "org.smssecure.smssecure"
         versionCode 212
         versionName "0.15.16"
 
-        minSdkVersion 14
-        targetSdkVersion 26
+        minSdkVersion 21
+        targetSdkVersion 34
 
         vectorDrawables.useSupportLibrary = true
     }
@@ -137,13 +121,17 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    packagingOptions {
-        exclude 'LICENSE.txt'
-        exclude 'LICENSE'
-        exclude 'NOTICE'
-        exclude 'asm-license.txt'
-        exclude 'META-INF/LICENSE'
-        exclude 'META-INF/NOTICE'
+    packaging {
+        resources {
+            excludes += "META-INF/AL2.0"
+            excludes += "META-INF/LGPL2.1"
+            excludes += "META-INF/DEPENDENCIES"
+            excludes += "META-INF/LICENSE*"
+            excludes += "META-INF/NOTICE*"
+            excludes += "META-INF/INDEX.LIST"
+            excludes += "**/module-info.class"
+            pickFirsts += "META-INF/services/*"
+        }
     }
 
     signingConfigs {
@@ -152,7 +140,7 @@ android {
 
     buildTypes {
         debug {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard.cfg'
             testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard.cfg'
         }
@@ -168,7 +156,11 @@ android {
         main {
             manifest.srcFile 'AndroidManifest.xml'
             java.srcDirs = ['src']
-            resources.srcDirs = ['src']
+            resources {
+                srcDirs = ['src']
+                exclude '**/*.java'
+                exclude '**/*.kt'
+            }
             aidl.srcDirs = ['src']
             renderscript.srcDirs = ['src']
             res.srcDirs = ['res']
@@ -187,7 +179,7 @@ android {
     }
 }
 
-tasks.whenTaskAdded { task ->
+tasks.configureEach { task ->
     if (task.name.equals("lint")) {
         task.enabled = false
     }
@@ -219,6 +211,5 @@ if (propFile.canRead()){
 }
 
 tasks.withType(JavaCompile){
-    options.warnings = false           
+    options.warnings = false
 }
-     

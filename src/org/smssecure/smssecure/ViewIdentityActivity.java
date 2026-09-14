@@ -17,7 +17,7 @@
 package org.smssecure.smssecure;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.widget.TextView;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -73,8 +73,10 @@ public class ViewIdentityActivity extends KeyScanningActivity {
   public boolean onOptionsItemSelected(MenuItem item) {
     super.onOptionsItemSelected(item);
 
-    switch (item.getItemId()) {
-        case android.R.id.home:finish(); return true;
+    int itemId = item.getItemId();
+    if (itemId == android.R.id.home) {
+      finish();
+      return true;
     }
 
     return false;

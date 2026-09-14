@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Build;
 
 import org.smssecure.smssecure.service.KeyCachingService;
 import org.whispersystems.jobqueue.requirements.RequirementListener;
@@ -26,7 +27,11 @@ public class MasterSecretRequirementProvider implements RequirementProvider {
     };
 
     IntentFilter filter = new IntentFilter(KeyCachingService.NEW_KEY_EVENT);
-    context.registerReceiver(newKeyReceiver, filter, KeyCachingService.KEY_PERMISSION, null);
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+      context.registerReceiver(newKeyReceiver, filter, KeyCachingService.KEY_PERMISSION, null, Context.RECEIVER_NOT_EXPORTED);
+    } else {
+      context.registerReceiver(newKeyReceiver, filter, KeyCachingService.KEY_PERMISSION, null);
+    }
   }
 
   @Override

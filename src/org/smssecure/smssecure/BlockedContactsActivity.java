@@ -4,11 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ListFragment;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.Loader;
-import android.support.v4.widget.CursorAdapter;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.ListFragment;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.Loader;
+import androidx.cursoradapter.widget.CursorAdapter;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -52,8 +52,10 @@ public class BlockedContactsActivity extends PassphraseRequiredActionBarActivity
 
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
-    switch (item.getItemId()) {
-      case android.R.id.home: finish(); return true;
+    int itemId = item.getItemId();
+    if (itemId == android.R.id.home) {
+      finish();
+      return true;
     }
 
     return false;

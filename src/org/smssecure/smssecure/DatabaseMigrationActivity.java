@@ -6,12 +6,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -115,7 +116,11 @@ public class DatabaseMigrationActivity extends PassphraseRequiredActionBarActivi
     filter.addAction(ApplicationMigrationService.COMPLETED_ACTION);
     filter.setPriority(1000);
 
-    registerReceiver(completedReceiver, filter);
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+      registerReceiver(completedReceiver, filter, Context.RECEIVER_NOT_EXPORTED);
+    } else {
+      registerReceiver(completedReceiver, filter);
+    }
   }
 
   private void unregisterForCompletedNotification() {

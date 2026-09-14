@@ -18,7 +18,7 @@ package org.smssecure.smssecure;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
+import androidx.appcompat.app.ActionBar;
 import android.text.Editable;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -89,8 +89,10 @@ public class PassphrasePromptActivity extends PassphraseActivity {
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
     super.onOptionsItemSelected(item);
-    switch (item.getItemId()) {
-    case R.id.menu_submit_debug_logs: handleLogSubmit(); return true;
+    int itemId = item.getItemId();
+    if (itemId == R.id.menu_submit_debug_logs) {
+      handleLogSubmit();
+      return true;
     }
 
     return false;

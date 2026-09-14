@@ -17,10 +17,10 @@
 package org.smssecure.smssecure.preferences;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import android.view.MenuItem;
 
 import org.smssecure.smssecure.PassphraseRequiredActionBarActivity;
@@ -60,10 +60,10 @@ public class MmsPreferencesActivity extends PassphraseRequiredActionBarActivity 
 
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
-    switch (item.getItemId()) {
-      case android.R.id.home:
-        finish();
-        return true;
+    int itemId = item.getItemId();
+    if (itemId == android.R.id.home) {
+      finish();
+      return true;
     }
 
     return false;

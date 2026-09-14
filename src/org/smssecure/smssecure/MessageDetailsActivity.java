@@ -22,9 +22,9 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.LoaderManager.LoaderCallbacks;
-import android.support.v4.content.Loader;
+import androidx.annotation.NonNull;
+import androidx.loader.app.LoaderManager.LoaderCallbacks;
+import androidx.loader.content.Loader;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -280,8 +280,10 @@ public class MessageDetailsActivity extends PassphraseRequiredActionBarActivity 
   public boolean onOptionsItemSelected(MenuItem item) {
     super.onOptionsItemSelected(item);
 
-    switch (item.getItemId()) {
-      case android.R.id.home: finish(); return true;
+    int itemId = item.getItemId();
+    if (itemId == android.R.id.home) {
+      finish();
+      return true;
     }
 
     return false;

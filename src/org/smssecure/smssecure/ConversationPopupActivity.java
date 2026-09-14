@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityOptionsCompat;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityOptionsCompat;
 import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
@@ -76,32 +76,32 @@ public class ConversationPopupActivity extends ConversationActivity {
 
   @Override
   public boolean onOptionsItemSelected(MenuItem item) {
-    switch (item.getItemId()) {
-      case R.id.menu_expand:
-        saveDraft().addListener(new ListenableFuture.Listener<Long>() {
-          @Override
-          public void onSuccess(Long result) {
-            ActivityOptionsCompat transition = ActivityOptionsCompat.makeScaleUpAnimation(getWindow().getDecorView(), 0, 0, getWindow().getAttributes().width, getWindow().getAttributes().height);
-            Intent intent = new Intent(ConversationPopupActivity.this, ConversationActivity.class);
-            intent.putExtra(ConversationActivity.RECIPIENTS_EXTRA, getRecipients().getIds());
-            intent.putExtra(ConversationActivity.THREAD_ID_EXTRA, result);
+    int itemId = item.getItemId();
+    if (itemId == R.id.menu_expand) {
+      saveDraft().addListener(new ListenableFuture.Listener<Long>() {
+        @Override
+        public void onSuccess(Long result) {
+          ActivityOptionsCompat transition = ActivityOptionsCompat.makeScaleUpAnimation(getWindow().getDecorView(), 0, 0, getWindow().getAttributes().width, getWindow().getAttributes().height);
+          Intent intent = new Intent(ConversationPopupActivity.this, ConversationActivity.class);
+          intent.putExtra(ConversationActivity.RECIPIENTS_EXTRA, getRecipients().getIds());
+          intent.putExtra(ConversationActivity.THREAD_ID_EXTRA, result);
 
-            if (VERSION.SDK_INT >= VERSION_CODES.JELLY_BEAN) {
-              startActivity(intent, transition.toBundle());
-            } else {
-              startActivity(intent);
-              overridePendingTransition(R.anim.fade_scale_in, R.anim.slide_to_right);
-            }
-
-            finish();
+          if (VERSION.SDK_INT >= VERSION_CODES.JELLY_BEAN) {
+            startActivity(intent, transition.toBundle());
+          } else {
+            startActivity(intent);
+            overridePendingTransition(R.anim.fade_scale_in, R.anim.slide_to_right);
           }
 
-          @Override
-          public void onFailure(ExecutionException e) {
-            Log.w(TAG, e);
-          }
-        });
-        return true;
+          finish();
+        }
+
+        @Override
+        public void onFailure(ExecutionException e) {
+          Log.w(TAG, e);
+        }
+      });
+      return true;
     }
 
     return false;

@@ -32,9 +32,9 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Looper;
 import android.service.notification.StatusBarNotification;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.NotificationManagerCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.NotificationManagerCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
@@ -459,7 +459,7 @@ public class MessageNotifier {
     Intent       alarmIntent  = new Intent(ReminderReceiver.REMINDER_ACTION);
     alarmIntent.putExtra("reminder_count", count);
 
-    PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, alarmIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+    PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, alarmIntent, PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_IMMUTABLE);
     long          timeout       = TimeUnit.MINUTES.toMillis(2);
 
     alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + timeout, pendingIntent);
@@ -467,7 +467,7 @@ public class MessageNotifier {
 
   public static void clearReminder(Context context) {
     Intent        alarmIntent   = new Intent(ReminderReceiver.REMINDER_ACTION);
-    PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, alarmIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+    PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, alarmIntent, PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_IMMUTABLE);
     AlarmManager  alarmManager  = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
     alarmManager.cancel(pendingIntent);
   }

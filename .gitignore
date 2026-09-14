@@ -21,3 +21,7 @@ signing.properties
 library/lib/
 library/obj/
 *.patch
+.artifacts/
+output.txt
+entries.txt
+strings_diff.txt

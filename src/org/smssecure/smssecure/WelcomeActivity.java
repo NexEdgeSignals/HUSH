@@ -9,8 +9,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.NotificationCompat;
+import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
 
 import org.smssecure.smssecure.BaseActionBarActivity;
 import org.smssecure.smssecure.notifications.NotificationChannels;
@@ -106,7 +106,7 @@ public class WelcomeActivity extends BaseActionBarActivity {
     Intent       targetIntent = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName());
     Notification notification = new NotificationCompat.Builder(context, NotificationChannels.OTHER)
                                     .setPriority(Notification.PRIORITY_MAX)
-                                    .setVisibility(Notification.VISIBILITY_PUBLIC)
+                                    .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                                     .setSmallIcon(R.drawable.icon_notification)
                                     .setColor(context.getResources().getColor(R.color.silence_primary))
                                     .setContentTitle(context.getString(R.string.WelcomeActivity_action_required))
@@ -115,7 +115,7 @@ public class WelcomeActivity extends BaseActionBarActivity {
                                     .setAutoCancel(false)
                                     .setContentIntent(PendingIntent.getActivity(context, 0,
                                                                                 targetIntent,
-                                                                                PendingIntent.FLAG_UPDATE_CURRENT))
+                                                                                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE))
                                     .build();
     ServiceUtil.getNotificationManager(context).notify(NOTIFICATION_ID, notification);
   }

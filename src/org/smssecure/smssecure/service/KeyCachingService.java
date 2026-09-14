@@ -28,7 +28,7 @@ import android.os.Binder;
 import android.os.Build;
 import android.os.IBinder;
 import android.os.SystemClock;
-import android.support.v4.app.NotificationCompat;
+import androidx.core.app.NotificationCompat;
 import android.util.Log;
 import android.widget.RemoteViews;
 
@@ -143,7 +143,7 @@ public class KeyCachingService extends Service {
     Log.w("KeyCachingService", "onCreate()");
     super.onCreate();
     this.pending = PendingIntent.getService(this, 0, new Intent(PASSPHRASE_EXPIRED_EVENT, null,
-                                                                this, KeyCachingService.class), 0);
+                                                                this, KeyCachingService.class), PendingIntent.FLAG_IMMUTABLE);
 
     if (SilencePreferences.isPasswordDisabled(this)) {
       try {
@@ -304,13 +304,13 @@ public class KeyCachingService extends Service {
   private PendingIntent buildLockIntent() {
     Intent intent = new Intent(this, KeyCachingService.class);
     intent.setAction(PASSPHRASE_EXPIRED_EVENT);
-    return PendingIntent.getService(getApplicationContext(), 0, intent, 0);
+    return PendingIntent.getService(getApplicationContext(), 0, intent, PendingIntent.FLAG_IMMUTABLE);
   }
 
   private PendingIntent buildLaunchIntent() {
     Intent intent              = new Intent(this, ConversationListActivity.class);
     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-    PendingIntent launchIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
+    PendingIntent launchIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, PendingIntent.FLAG_IMMUTABLE);
     return launchIntent;
   }
 

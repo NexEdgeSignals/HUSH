@@ -2,10 +2,10 @@ package org.smssecure.smssecure.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
+import androidx.preference.PreferenceManager;
 import android.provider.Settings;
-import android.support.annotation.ArrayRes;
-import android.support.annotation.NonNull;
+import androidx.annotation.ArrayRes;
+import androidx.annotation.NonNull;
 import android.util.Log;
 
 import org.smssecure.smssecure.R;
@@ -120,6 +120,16 @@ public class SilencePreferences {
   public static void setSimCardAsked(Context context, boolean enabled) {
     setBooleanPreference(context, ASK_FOR_SIM_CARD, enabled);
   }
+  private static final String PANIC_TRUSTED_PACKAGE_PREF = "pref_panic_trusted_package";
+
+  public static String getPanicTrustedPackage(Context context) {
+    return getStringPreference(context, PANIC_TRUSTED_PACKAGE_PREF, null);
+  }
+
+  public static void setPanicTrustedPackage(Context context, String packageName) {
+    setStringPreference(context, PANIC_TRUSTED_PACKAGE_PREF, packageName);
+  }
+
 
   public static NotificationPrivacyPreference getNotificationPrivacy(Context context) {
     return new NotificationPrivacyPreference(getStringPreference(context, NOTIFICATION_PRIVACY_PREF, "all"));
