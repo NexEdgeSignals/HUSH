@@ -1,0 +1,62 @@
+apply plugin: 'com.android.library'
+
+// Vendored from https://github.com/signalapp/curve25519-java @ 70fae57d6dccff7e78a46203c534314b07dfdd98 (version 0.5.0)
+// Only build wiring modernized for the SilenceNG Gradle/AGP setup; the JNI C sources in jni/ are untouched.
+// Rebuilt natively for 16 KB page-size compatibility (linker flags in jni/Android.mk).
+
+group            = group_info
+version          = '0.5.0'
+archivesBaseName = "curve25519-android"
+
+android {
+    namespace 'org.whispersystems.curve25519'
+    compileSdk 35
+    ndkVersion "30.0.16248370"
+
+    defaultConfig {
+        minSdk 21
+        targetSdk 35
+
+        // upstream's framework runner finds no tests on modern Android (API 34+); androidx runner
+        // runs the JUnit3 suite (androidTest-only, never shipped)
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        externalNativeBuild {
+            ndkBuild {
+                arguments "APP_PLATFORM=android-21",
+                          "APP_STL=none"
+                abiFilters += ["arm64-v8a", "armeabi-v7a", "x86", "x86_64"]
+            }
+        }
+    }
+
+    externalNativeBuild {
+        ndkBuild {
+            path "jni/Android.mk"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'src/main/AndroidManifest.xml'
+        }
+        androidTest {
+            java.srcDirs = ['src/androidTest/java']
+        }
+    }
+}
+
+dependencies {
+    api project(':curve25519-java')
+
+    // shared curve25519 test suite as a prebuilt JVM jar (fest-assert resolves java.awt on the
+    // desktop JDK; compiling it from source against android.jar fails on BufferedImage)
+    androidTestImplementation project(':curve25519-tests')
+    androidTestImplementation 'androidx.test:runner:1.5.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+}
