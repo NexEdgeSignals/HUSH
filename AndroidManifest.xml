@@ -5,7 +5,7 @@
 
     <uses-sdk tools:overrideLibrary="com.amulyakhare.textdrawable,com.astuetz.pagerslidingtabstrip,pl.tajchert.waitingdots,androidx.legacy.v13,com.davemorrissey.labs.subscaleview,com.klinker.android.send_message"/>
 
-    <permission android:name="org.smssecure.smssecure.ACCESS_SECRETS"
+    <permission android:name="org.hushsms.smssecureng.ACCESS_SECRETS"
                 android:label="Access to Silence Secrets"
                 android:protectionLevel="signature" />
 
@@ -17,7 +17,7 @@
     <uses-feature android:name="android.hardware.microphone" android:required="false"/>
     <uses-feature android:name="android.hardware.wifi" android:required="false"/>
 
-    <uses-permission android:name="org.smssecure.smssecure.ACCESS_SECRETS"/>
+    <uses-permission android:name="org.hushsms.smssecureng.ACCESS_SECRETS"/>
     <uses-permission android:name="android.permission.READ_PROFILE"/>
     <uses-permission android:name="android.permission.WRITE_PROFILE"/>
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
@@ -44,6 +44,8 @@
                  android:allowBackup="false"
                  android:theme="@style/Silence.LightTheme"
                  android:largeHeap="true">
+
+        <property android:name="android.pageSizeCompat" android:value="true"/>
 
     <receiver android:name="org.smssecure.smssecure.providers.BadgeWidgetProvider"
               android:icon="@mipmap/ic_launcher"
@@ -324,7 +326,7 @@
     <receiver android:name=".service.SmsDeliveryListener"
               android:exported="true">
         <intent-filter>
-            <action android:name="org.smssecure.smssecure.services.MESSAGE_SENT"/>
+            <action android:name="org.hushsms.smssecureng.services.MESSAGE_SENT"/>
         </intent-filter>
     </receiver>
 
@@ -346,7 +348,7 @@
               android:enabled="true"
               android:exported="false">
         <intent-filter>
-            <action android:name="org.smssecure.smssecure.notifications.CLEAR"/>
+            <action android:name="org.hushsms.smssecureng.notifications.CLEAR"/>
         </intent-filter>
     </receiver>
 
@@ -354,21 +356,21 @@
               android:enabled="true"
               android:exported="false">
         <intent-filter>
-            <action android:name="org.smssecure.smssecure.notifications.WEAR_REPLY"/>
+            <action android:name="org.hushsms.smssecureng.notifications.WEAR_REPLY"/>
         </intent-filter>
     </receiver>
 
     <receiver android:name=".notifications.AndroidAutoHeardReceiver"
               android:exported="false">
         <intent-filter>
-          <action android:name="org.smssecure.smssecure.notifications.ANDROID_AUTO_HEARD"/>
+          <action android:name="org.hushsms.smssecureng.notifications.ANDROID_AUTO_HEARD"/>
         </intent-filter>
     </receiver>
 
     <receiver android:name=".notifications.AndroidAutoReplyReceiver"
               android:exported="false">
         <intent-filter>
-          <action android:name="org.smssecure.smssecure.notifications.ANDROID_AUTO_REPLY"/>
+          <action android:name="org.hushsms.smssecureng.notifications.ANDROID_AUTO_REPLY"/>
         </intent-filter>
     </receiver>
 
@@ -376,37 +378,37 @@
     <provider android:name=".providers.PartProvider"
               android:grantUriPermissions="true"
               android:exported="false"
-              android:authorities="org.smssecure.provider.smssecure" />
+              android:authorities="org.hushsms.smssecureng.provider" />
 
     <provider android:name=".providers.MmsBodyProvider"
               android:grantUriPermissions="true"
               android:exported="false"
-              android:authorities="org.smssecure.provider.smssecure.mms" />
+              android:authorities="org.hushsms.smssecureng.provider.mms" />
 
     <provider android:name=".database.DatabaseContentProviders$Conversation"
-              android:authorities="org.smssecure.smssecure.database.conversation"
+              android:authorities="org.hushsms.smssecureng.database.conversation"
               android:exported="false" />
 
     <provider android:name=".database.DatabaseContentProviders$ConversationList"
-              android:authorities="org.smssecure.smssecure.database.conversationlist"
+              android:authorities="org.hushsms.smssecureng.database.conversationlist"
               android:exported="false" />
 
     <provider android:name=".database.DatabaseContentProviders$Attachment"
-              android:authorities="org.smssecure.smssecure.database.attachment"
+              android:authorities="org.hushsms.smssecureng.database.attachment"
               android:exported="false" />
 
     <provider android:name=".database.DatabaseContentProviders$Identities"
-              android:authorities="org.smssecure.smssecure.database.identities"
+              android:authorities="org.hushsms.smssecureng.database.identities"
               android:exported="false" />
 
     <provider android:name=".database.DatabaseContentProviders$RecipientPreference"
-              android:authorities="org.smssecure.smssecure.database.recipients"
+              android:authorities="org.hushsms.smssecureng.database.recipients"
               android:exported="false" />
 
     <receiver android:name=".service.RegistrationNotifier"
               android:exported="false">
         <intent-filter>
-            <action android:name="org.smssecure.smssecure.REGISTRATION_EVENT" />
+            <action android:name="org.hushsms.smssecureng.REGISTRATION_EVENT" />
         </intent-filter>
     </receiver>
 
@@ -420,19 +422,19 @@
     <receiver android:name=".notifications.MessageNotifier$ReminderReceiver"
               android:exported="false">
         <intent-filter>
-            <action android:name="org.smssecure.smssecure.MessageNotifier.REMINDER_ACTION"/>
+            <action android:name="org.hushsms.smssecureng.MessageNotifier.REMINDER_ACTION"/>
         </intent-filter>
     </receiver>
 
     <receiver android:name=".notifications.DeleteNotificationReceiver"
               android:exported="false">
         <intent-filter>
-            <action android:name="org.smssecure.smssecure.DELETE_NOTIFICATION"/>
+            <action android:name="org.hushsms.smssecureng.DELETE_NOTIFICATION"/>
         </intent-filter>
     </receiver>
 
     <provider android:name="androidx.core.content.FileProvider"
-              android:authorities="org.smssecure.smssecure.fileprovider"
+              android:authorities="org.hushsms.smssecureng.fileprovider"
               android:exported="false"
               android:grantUriPermissions="true">
 
@@ -449,7 +451,7 @@
 
         <intent-filter>
             <action android:name="android.intent.action.BOOT_COMPLETED"/>
-            <action android:name="org.smssecure.smssecure.RESTART"/>
+            <action android:name="org.hushsms.smssecureng.RESTART"/>
         </intent-filter>
     </receiver>
 

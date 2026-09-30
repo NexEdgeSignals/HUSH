@@ -29,7 +29,7 @@ public class SingleUseBlobProvider {
 
   private static final String TAG = SingleUseBlobProvider.class.getSimpleName();
 
-  public  static final String AUTHORITY   = "org.smssecure.smssecure";
+  public  static final String AUTHORITY   = "org.hushsms.smssecureng";
   public  static final String PATH        = "memory/*/#";
   private static final Uri    CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/memory");
 

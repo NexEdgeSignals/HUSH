@@ -41,7 +41,7 @@ import java.io.InputStream;
 public class PartProvider extends ContentProvider {
   private static final String TAG = PartProvider.class.getSimpleName();
 
-  private static final String CONTENT_URI_STRING = "content://org.smssecure.provider.smssecure/part";
+  private static final String CONTENT_URI_STRING = "content://org.hushsms.smssecureng.provider/part";
   private static final Uri    CONTENT_URI        = Uri.parse(CONTENT_URI_STRING);
   private static final int    SINGLE_ROW         = 1;
 
@@ -49,7 +49,7 @@ public class PartProvider extends ContentProvider {
 
   static {
     uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
-    uriMatcher.addURI("org.smssecure.provider.smssecure", "part/*/#", SINGLE_ROW);
+    uriMatcher.addURI("org.hushsms.smssecureng.provider", "part/*/#", SINGLE_ROW);
   }
 
   @Override

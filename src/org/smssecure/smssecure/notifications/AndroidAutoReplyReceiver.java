@@ -49,7 +49,7 @@ import java.util.List;
 public class AndroidAutoReplyReceiver extends MasterSecretBroadcastReceiver {
 
   public static final String TAG                 = AndroidAutoReplyReceiver.class.getSimpleName();
-  public static final String REPLY_ACTION        = "org.smssecure.smssecure.notifications.ANDROID_AUTO_REPLY";
+  public static final String REPLY_ACTION        = "org.hushsms.smssecureng.notifications.ANDROID_AUTO_REPLY";
   public static final String RECIPIENT_IDS_EXTRA = "car_recipient_ids";
   public static final String VOICE_REPLY_KEY     = "car_voice_reply_key";
   public static final String THREAD_ID_EXTRA     = "car_reply_thread_id";

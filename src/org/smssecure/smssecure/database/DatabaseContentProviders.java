@@ -14,11 +14,11 @@ import androidx.annotation.Nullable;
 public class DatabaseContentProviders {
 
   public static class ConversationList extends NoopContentProvider {
-    public static final Uri CONTENT_URI = Uri.parse("content://org.smssecure.smssecure.database.conversationlist");
+    public static final Uri CONTENT_URI = Uri.parse("content://org.hushsms.smssecureng.database.conversationlist");
   }
 
   public static class Conversation extends NoopContentProvider {
-    private static final String CONTENT_URI_STRING = "content://org.smssecure.smssecure.database.conversation/";
+    private static final String CONTENT_URI_STRING = "content://org.hushsms.smssecureng.database.conversation/";
 
     public static Uri getUriForThread(long threadId) {
       return Uri.parse(CONTENT_URI_STRING + threadId);
@@ -26,15 +26,15 @@ public class DatabaseContentProviders {
   }
 
   public static class Attachment extends NoopContentProvider {
-    public static final Uri CONTENT_URI = Uri.parse("content://org.smssecure.smssecure.database.attachment");
+    public static final Uri CONTENT_URI = Uri.parse("content://org.hushsms.smssecureng.database.attachment");
   }
 
   public static class Identities extends NoopContentProvider {
-    public static final Uri CONTENT_URI = Uri.parse("content://org.smssecure.smssecure.database.identities");
+    public static final Uri CONTENT_URI = Uri.parse("content://org.hushsms.smssecureng.database.identities");
   }
 
   public static class RecipientPreference extends NoopContentProvider {
-    public static final Uri CONTENT_URI = Uri.parse("content://org.smssecure.smssecure.database.recipients/");
+    public static final Uri CONTENT_URI = Uri.parse("content://org.hushsms.smssecureng.database.recipients/");
   }
 
   private static abstract class NoopContentProvider extends ContentProvider {

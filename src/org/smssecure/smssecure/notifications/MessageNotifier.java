@@ -474,7 +474,7 @@ public class MessageNotifier {
 
   public static class ReminderReceiver extends BroadcastReceiver {
 
-    public static final String REMINDER_ACTION = "org.smssecure.smssecure.MessageNotifier.REMINDER_ACTION";
+    public static final String REMINDER_ACTION = "org.hushsms.smssecureng.MessageNotifier.REMINDER_ACTION";
 
     @Override
     public void onReceive(final Context context, final Intent intent) {

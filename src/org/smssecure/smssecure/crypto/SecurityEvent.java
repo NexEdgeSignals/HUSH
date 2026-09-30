@@ -13,7 +13,7 @@ import org.smssecure.smssecure.service.KeyCachingService;
 
 public class SecurityEvent {
 
-  public static final String SECURITY_UPDATE_EVENT = "org.smssecure.smssecure.KEY_EXCHANGE_UPDATE";
+  public static final String SECURITY_UPDATE_EVENT = "org.hushsms.smssecureng.KEY_EXCHANGE_UPDATE";
 
   public static void broadcastSecurityUpdateEvent(Context context, long threadId) {
     Intent intent = new Intent(SECURITY_UPDATE_EVENT);

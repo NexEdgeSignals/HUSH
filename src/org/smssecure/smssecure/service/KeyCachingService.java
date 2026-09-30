@@ -59,15 +59,15 @@ public class KeyCachingService extends Service {
 
   public static final int SERVICE_RUNNING_ID = 4141;
 
-  public  static final String KEY_PERMISSION           = "org.smssecure.smssecure.ACCESS_SECRETS";
-  public  static final String NEW_KEY_EVENT            = "org.smssecure.smssecure.service.action.NEW_KEY_EVENT";
-  public  static final String CLEAR_KEY_EVENT          = "org.smssecure.smssecure.service.action.CLEAR_KEY_EVENT";
-  private static final String PASSPHRASE_EXPIRED_EVENT = "org.smssecure.smssecure.service.action.PASSPHRASE_EXPIRED_EVENT";
-  public  static final String CLEAR_KEY_ACTION         = "org.smssecure.smssecure.service.action.CLEAR_KEY";
-  public  static final String DISABLE_ACTION           = "org.smssecure.smssecure.service.action.DISABLE";
-  public  static final String ACTIVITY_START_EVENT     = "org.smssecure.smssecure.service.action.ACTIVITY_START_EVENT";
-  public  static final String ACTIVITY_STOP_EVENT      = "org.smssecure.smssecure.service.action.ACTIVITY_STOP_EVENT";
-  public  static final String LOCALE_CHANGE_EVENT      = "org.smssecure.smssecure.service.action.LOCALE_CHANGE_EVENT";
+  public  static final String KEY_PERMISSION           = "org.hushsms.smssecureng.ACCESS_SECRETS";
+  public  static final String NEW_KEY_EVENT            = "org.hushsms.smssecureng.service.action.NEW_KEY_EVENT";
+  public  static final String CLEAR_KEY_EVENT          = "org.hushsms.smssecureng.service.action.CLEAR_KEY_EVENT";
+  private static final String PASSPHRASE_EXPIRED_EVENT = "org.hushsms.smssecureng.service.action.PASSPHRASE_EXPIRED_EVENT";
+  public  static final String CLEAR_KEY_ACTION         = "org.hushsms.smssecureng.service.action.CLEAR_KEY";
+  public  static final String DISABLE_ACTION           = "org.hushsms.smssecureng.service.action.DISABLE";
+  public  static final String ACTIVITY_START_EVENT     = "org.hushsms.smssecureng.service.action.ACTIVITY_START_EVENT";
+  public  static final String ACTIVITY_STOP_EVENT      = "org.hushsms.smssecureng.service.action.ACTIVITY_STOP_EVENT";
+  public  static final String LOCALE_CHANGE_EVENT      = "org.hushsms.smssecureng.service.action.LOCALE_CHANGE_EVENT";
 
   private DynamicLanguage dynamicLanguage = new DynamicLanguage();
 

@@ -22,7 +22,7 @@ import org.smssecure.smssecure.util.Util;
 
 public class WelcomeActivity extends BaseActionBarActivity {
 
-  private int backgroundColor = 0xFF7568AE;
+  private int backgroundColor = 0xFF132A67;
 
   private static final int NOTIFICATION_ID = 1339;
 

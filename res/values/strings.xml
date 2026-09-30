@@ -940,6 +940,18 @@
     <string name="Permissions_continue">Continue</string>
     <string name="Permissions_not_now">Not now</string>
 
+    <string name="AndroidManifest__media_overview">All images</string>
+    <string name="AndroidManifest__media_overview_named">All images with %1$s</string>
+    <string name="ReceiveKeyActivity_processing">Processing</string>
+    <string name="ReceiveKeyActivity_processing_key_exchange">Processing key exchange…</string>
+    <string name="ReceiveKeyActivity_the_signature_on_this_key_exchange_is_different">The signature on this key exchange is different from what you previously received from this contact. This could mean that someone is attempting to intercept your communication, or that this contact simply re-installed HUSH and now has a new identity key.</string>
+    <string name="ReceiveKeyActivity_the_signature_on_this_key_exchange_is_trusted_but">The signature on this key exchange is trusted, but you have disabled automatic key exchange completion.</string>
+    <string name="conversation__menu_view_media">All images</string>
+    <string name="media_overview_activity__no_images">No images</string>
+    <string name="media_preview__overview_title">All images</string>
+    <string name="media_preview_activity__image_content_description">Image preview</string>
+    <string name="receive_key_activity__complete">Complete</string>
+
     <!-- EOF -->
 
 </resources>

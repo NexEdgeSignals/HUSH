@@ -33,8 +33,8 @@ public class PartAuthority {
 
   static {
     uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
-    uriMatcher.addURI("org.smssecure.smssecure", "part/*/#", PART_ROW);
-    uriMatcher.addURI("org.smssecure.smssecure", "thumb/*/#", THUMB_ROW);
+    uriMatcher.addURI("org.hushsms.smssecureng", "part/*/#", PART_ROW);
+    uriMatcher.addURI("org.hushsms.smssecureng", "thumb/*/#", THUMB_ROW);
     uriMatcher.addURI(PersistentBlobProvider.AUTHORITY, PersistentBlobProvider.EXPECTED_PATH, PERSISTENT_ROW);
     uriMatcher.addURI(SingleUseBlobProvider.AUTHORITY, SingleUseBlobProvider.PATH, SINGLE_USE_ROW);
   }

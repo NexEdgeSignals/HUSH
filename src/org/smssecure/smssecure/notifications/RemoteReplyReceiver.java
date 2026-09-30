@@ -45,7 +45,7 @@ import java.util.LinkedList;
 public class RemoteReplyReceiver extends MasterSecretBroadcastReceiver {
 
   public static final String TAG                 = RemoteReplyReceiver.class.getSimpleName();
-  public static final String REPLY_ACTION        = "org.smssecure.smssecure.notifications.WEAR_REPLY";
+  public static final String REPLY_ACTION        = "org.hushsms.smssecureng.notifications.WEAR_REPLY";
   public static final String RECIPIENT_IDS_EXTRA = "recipient_ids";
 
   @Override

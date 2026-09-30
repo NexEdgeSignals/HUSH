@@ -36,7 +36,7 @@ import java.util.List;
 public class AndroidAutoHeardReceiver extends MasterSecretBroadcastReceiver {
 
   public static final String TAG                   = AndroidAutoHeardReceiver.class.getSimpleName();
-  public static final String HEARD_ACTION          = "org.smssecure.smssecure.notifications.ANDROID_AUTO_HEARD";
+  public static final String HEARD_ACTION          = "org.hushsms.smssecureng.notifications.ANDROID_AUTO_HEARD";
   public static final String THREAD_IDS_EXTRA      = "car_heard_thread_ids";
   public static final String NOTIFICATION_ID_EXTRA = "car_notification_id";
 

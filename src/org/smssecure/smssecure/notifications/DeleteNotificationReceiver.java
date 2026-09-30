@@ -10,7 +10,7 @@ import org.smssecure.smssecure.database.DatabaseFactory;
 
 public class DeleteNotificationReceiver extends BroadcastReceiver {
 
-  public static String DELETE_NOTIFICATION_ACTION = "org.smssecure.smssecure.DELETE_NOTIFICATION";
+  public static String DELETE_NOTIFICATION_ACTION = "org.hushsms.smssecureng.DELETE_NOTIFICATION";
 
   public static String EXTRA_IDS = "message_ids";
   public static String EXTRA_MMS = "is_mms";

@@ -14,8 +14,8 @@ public class SmsDeliveryListener extends BroadcastReceiver {
 
   private static final String TAG = SmsDeliveryListener.class.getSimpleName();
 
-  public static final String SENT_SMS_ACTION      = "org.smssecure.smssecure.SendReceiveService.SENT_SMS_ACTION";
-  public static final String DELIVERED_SMS_ACTION = "org.smssecure.smssecure.SendReceiveService.DELIVERED_SMS_ACTION";
+  public static final String SENT_SMS_ACTION      = "org.hushsms.smssecureng.SendReceiveService.SENT_SMS_ACTION";
+  public static final String DELIVERED_SMS_ACTION = "org.hushsms.smssecureng.SendReceiveService.DELIVERED_SMS_ACTION";
 
   @Override
   public void onReceive(Context context, Intent intent) {
