@@ -6,7 +6,7 @@
     <uses-sdk tools:overrideLibrary="com.amulyakhare.textdrawable,com.astuetz.pagerslidingtabstrip,pl.tajchert.waitingdots,androidx.legacy.v13,com.davemorrissey.labs.subscaleview,com.klinker.android.send_message"/>
 
     <permission android:name="org.hushsms.smssecureng.ACCESS_SECRETS"
-                android:label="Access to Silence Secrets"
+                android:label="Access to HUSH secrets"
                 android:protectionLevel="signature" />
 
     <uses-feature android:name="android.hardware.camera" android:required="false" />

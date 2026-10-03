@@ -1,3 +1,5 @@
+rootProject.name = 'HUSH'
+
 include ':com.amulyakhare.textdrawable'
 project(':com.amulyakhare.textdrawable').projectDir = new File(rootDir, 'libs/com.amulyakhare.textdrawable/library')
 

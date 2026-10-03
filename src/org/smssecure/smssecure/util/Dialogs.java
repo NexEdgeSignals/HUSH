@@ -17,6 +17,11 @@
 package org.smssecure.smssecure.util;
 
 import android.content.Context;
+import android.os.Build;
+import android.text.Html;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 
 import org.smssecure.smssecure.R;
@@ -36,6 +41,18 @@ public class Dialogs {
     dialog.setTitle(title);
     dialog.setMessage(message);
     dialog.setIconAttribute(R.attr.dialog_info_icon);
+    dialog.setPositiveButton(android.R.string.ok, null);
+    dialog.show();
+  }
+
+  public static void showHtmlDialog(Context context, int titleRes, String html) {
+    View view = LayoutInflater.from(context).inflate(R.layout.dialog_scrollable_text, null);
+    TextView textView = (TextView) view.findViewById(R.id.dialog_text);
+    if (Build.VERSION.SDK_INT >= 24) textView.setText(Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY));
+    else                             textView.setText(Html.fromHtml(html));
+    AlertDialog.Builder dialog = new AlertDialog.Builder(context);
+    dialog.setTitle(titleRes);
+    dialog.setView(view);
     dialog.setPositiveButton(android.R.string.ok, null);
     dialog.show();
   }
