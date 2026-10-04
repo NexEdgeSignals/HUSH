@@ -3,16 +3,16 @@
 	url = https://github.com/signalapp/gradle-witness.git
 [submodule "libs/org.whispersystems.libpastelog"]
 	path = libs/org.whispersystems.libpastelog
-	url = https://github.com/signalapp/libpastelog.git
+	url = https://github.com/NexEdgeSignals/libpastelog.git
 [submodule "libs/org.greenrobot.eventbus"]
 	path = libs/org.greenrobot.eventbus
-	url = https://github.com/greenrobot/EventBus
+	url = https://github.com/NexEdgeSignals/EventBus.git
 [submodule "libs/org.whispersystems.libsignal"]
 	path = libs/org.whispersystems.libsignal
-	url = https://github.com/signalapp/libsignal-protocol-java.git
+	url = https://github.com/NexEdgeSignals/libsignal-protocol-java.git
 [submodule "libs/org.whispersystems.jobmanager"]
 	path = libs/org.whispersystems.jobmanager
-	url = https://github.com/signalapp/jobmanager.git
+	url = https://github.com/NexEdgeSignals/jobmanager.git
 [submodule "libs/com.amulyakhare.textdrawable"]
 	path = libs/com.amulyakhare.textdrawable
-	url = https://github.com/amulyakhare/TextDrawable.git
+	url = https://github.com/NexEdgeSignals/TextDrawable.git
