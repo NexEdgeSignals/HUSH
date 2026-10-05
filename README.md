@@ -1,60 +1,35 @@
-# Silence [![Build Status](https://git.silence.dev/Silence/Silence-Android/badges/master/pipeline.svg)](https://git.silence.dev/Silence/Silence-Android/pipelines)[![Translation Status](https://translate.silence.dev/widgets/silence/-/svg-badge.svg)](https://translate.silence.dev/projects/silence/)
+# HUSH
 
-[Silence](https://silence.im) (formerly SMSSecure) is an SMS/MMS application that allows you to protect your privacy while communicating with friends.
+**HUSH** is a free, open-source, end-to-end encrypted SMS/MMS app for Android.
 
-Using Silence, you can send SMS messages and share media or attachments with complete privacy.
+It is a continuation of [**Silence**](https://github.com/SilenceIM/Silence) (formerly known as **SMSSecure**), an excellent privacy-focused messaging app whose development stopped several years ago. Rather than let that work disappear, HUSH picks it up, modernizes it for current versions of Android, and carries it forward under a new name — while remaining fully committed to the values the original project stood for: privacy, transparency, and software freedom.
 
-[![Get it on F-Droid](https://silence.im/images/fdroid-github.png)](https://f-droid.org/app/org.smssecure.smssecure)
-[![Get it on Google Play](https://silence.im/images/play-github.png)](https://play.google.com/store/apps/details?id=org.smssecure.smssecure)
+## Why HUSH exists
 
-Features:
-* Easy. Silence works like any other SMS application. There's nothing to sign up for and no new service your friends need to join.
-* Reliable. Silence communicates using encrypted SMS messages. No servers or internet connection required.
-* Private. Silence uses the Signal encryption protocol to provide privacy for every message, every time.
-* Safe. All messages are encrypted locally, so if your phone is lost or stolen, your messages are protected.
-* Open Source. Silence is Free and Open Source, enabling anyone to verify its security by auditing the code.
+Silence/SMSSecure was one of the few apps that let people send genuinely encrypted text messages over the regular SMS/MMS network — no internet connection, no third-party server, no account required. When its original development stopped, the app slowly became unusable on newer phones and Android versions. HUSH exists to keep that capability alive and actively maintained.
 
+## Features
 
-## Project goals
+- End-to-end encrypted SMS and MMS, using the same proven encryption (Signal Protocol / Curve25519) as the original Silence
+- Works entirely over the standard cellular SMS/MMS network — no internet or data connection required to send or receive
+- No phone number verification server, no account, no central service
+- Can be set as your device's default messaging app
+- Free and open source, licensed under the GPLv3
 
-This is a fork of [TextSecure](https://github.com/WhisperSystems/TextSecure) (now Signal) that aims to keep the SMS encryption that TextSecure removed [for a variety of reasons](https://whispersystems.org/blog/goodbye-encrypted-sms/).
+## Download
 
-Silence focuses on SMS and MMS. This fork aims to:
+HUSH is distributed as a free, open-source app. (F-Droid listing coming soon — this section will be updated with a direct link once published.)
 
-* Keep SMS/MMS encryption
-* Drop Google services dependencies (push messages are not available in Silence)
-* Integrate upstream bugfixes and patches from TextSecure
+## Credits & License
 
-# Contributing
+HUSH is a fork of [**Silence**](https://github.com/SilenceIM/Silence), which was itself a fork of **SMSSecure**, which in turn was based on **TextSecure** by Open Whisper Systems. HUSH exists thanks to the work of all of the original authors and contributors to those projects.
 
-See [CONTRIBUTING.md](https://git.silence.dev/Silence/Silence-Android/blob/master/CONTRIBUTING.md) for how to contribute code, translations, or bug reports.
+HUSH is free software, licensed under the **GNU General Public License v3.0 (GPLv3)** — the same license as the original Silence project. You are free to use, study, modify, and redistribute this software under the terms of that license. See the [`LICENSE`](LICENSE) file for the full license text.
 
-Instructions on how to setup a development environment and build Silence can be found in [BUILDING.md](https://git.silence.dev/Silence/Silence-Android/blob/master/BUILDING.md).
+## Privacy
 
-# Donate
+HUSH does not collect, transmit, or sell any of your data. Messages are encrypted on your device and only the intended recipient can read them. HUSH does not operate any server that your messages pass through.
 
-We accept Bitcoin donations. This will help us to pay various costs (web hosting, domain name, etc.). Our Bitcoin address is:
+## Contributing
 
-```
-1LoKZXg3bx6kfwAhEFQqS9pgeCE1CFMEJb
-```
-
-# Help
-## Documentation
-Looking for documentation? Check out the wiki of the original project:
-
-https://github.com/WhisperSystems/TextSecure/wiki
-
-## Chat
-Have a question? Want to help out? Join us on Mattermost on [chat.silence.dev](https://chat.silence.dev/), or follow [@SilenceIM](https://twitter.com/SilenceIM) on Twitter or [@silence@mastodon.social](https://mastodon.social/@silence) on Mastodon.
-
-# Legal
-## Cryptography Notice
-
-This distribution includes cryptographic software. The country in which you currently reside may have restrictions on the import, possession, use, and/or re-export to another country, of encryption software.
-BEFORE using any encryption software, please check your country's laws, regulations and policies concerning the import, possession, or use, and re-export of encryption software, to see if this is permitted.
-See <http://www.wassenaar.org/> for more information.
-
-## License
-
-Licensed under the GPLv3: http://www.gnu.org/licenses/gpl-3.0.html
+Bug reports, feature suggestions, and pull requests are welcome. Please open an issue to discuss significant changes before submitting a pull request.

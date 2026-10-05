@@ -18,6 +18,10 @@ build-log.xml
 .gradle
 build
 signing.properties
+
+# defensive: signing keystores must never be committed
+*.keystore
+*.jks
 library/lib/
 library/obj/
 *.patch
