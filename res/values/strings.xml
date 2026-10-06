@@ -892,6 +892,7 @@
     <string name="reminder_header_sms_default_title">Use as default SMS app?</string>
     <string name="reminder_header_sms_default_text_mandatory">HUSH must be your default SMS/MMS app to receive messages.</string>
     <string name="reminder_header_sms_default_button">SET</string>
+    <string name="DefaultSmsReminder_error">Could not open the default SMS app settings.</string>
     <string name="reminder_header_sms_import_title">Import system SMS?</string>
     <string name="reminder_header_sms_import_text">Tap to copy your phone\'s SMS messages into HUSH\'s encrypted database.</string>
     <string name="reminder_header_sms_import_button">IMPORT</string>
