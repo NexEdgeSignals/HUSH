@@ -33,7 +33,7 @@ public class PersistentBlobProvider {
 
   private static final String TAG = PersistentBlobProvider.class.getSimpleName();
 
-  private static final String     URI_STRING            = "content://org.smssecure.smssecure/capture";
+  private static final String     URI_STRING            = "content://org.hushsms.smssecureng/capture";
   public  static final Uri        CONTENT_URI           = Uri.parse(URI_STRING);
   public  static final String     AUTHORITY             = "org.hushsms.smssecureng";
   public  static final String     EXPECTED_PATH         = "capture/*/*/#";
