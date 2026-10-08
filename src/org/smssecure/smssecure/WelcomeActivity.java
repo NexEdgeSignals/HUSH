@@ -11,6 +11,7 @@ import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import org.smssecure.smssecure.BaseActionBarActivity;
 import org.smssecure.smssecure.notifications.NotificationChannels;
@@ -65,6 +66,8 @@ public class WelcomeActivity extends BaseActionBarActivity {
           SilencePreferences.setFirstRun(context);
           SilencePreferences.setPermissionsAsked(context);
 
+          requestNotificationsIfNeeded();
+
           goToNextIntent();
         })
         .execute();
@@ -81,6 +84,12 @@ public class WelcomeActivity extends BaseActionBarActivity {
                  goToNextIntent();
                })
                .execute();
+  }
+
+  private void requestNotificationsIfNeeded() {
+    if (Build.VERSION.SDK_INT < 33) return;
+    if (NotificationManagerCompat.from(this).areNotificationsEnabled()) return;
+    requestPermissions(new String[]{ Manifest.permission.POST_NOTIFICATIONS }, 65534);
   }
 
   private void goToNextIntent() {
