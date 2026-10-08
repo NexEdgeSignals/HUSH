@@ -77,7 +77,7 @@ public class NotificationItem {
 
     return TaskStackBuilder.create(context)
                            .addNextIntentWithParentStack(intent)
-                           .getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+                           .getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
   }
 
   public long getId() {

@@ -162,7 +162,7 @@ public class SmsSendJob extends SendJob {
     for (String ignored : messages) {
       sentIntents.add(PendingIntent.getBroadcast(context, 0,
                                                  constructSentIntent(context, messageId, type, secure),
-                                                 PendingIntent.FLAG_IMMUTABLE));
+                                                 PendingIntent.FLAG_MUTABLE));
     }
 
     return sentIntents;
@@ -178,7 +178,7 @@ public class SmsSendJob extends SendJob {
     for (String ignored : messages) {
       deliveredIntents.add(PendingIntent.getBroadcast(context, 0,
                                                       constructDeliveredIntent(context, messageId, type),
-                                                      PendingIntent.FLAG_IMMUTABLE));
+                                                      PendingIntent.FLAG_MUTABLE));
     }
 
     return deliveredIntents;
