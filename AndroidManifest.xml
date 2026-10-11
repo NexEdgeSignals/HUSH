@@ -19,6 +19,8 @@
 
     <uses-permission android:name="org.hushsms.smssecureng.ACCESS_SECRETS"/>
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE"/>
     <uses-permission android:name="android.permission.READ_PROFILE"/>
     <uses-permission android:name="android.permission.WRITE_PROFILE"/>
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
@@ -286,10 +288,16 @@
 
     <service android:enabled="true"
              android:name=".service.ApplicationMigrationService"
-             android:foregroundServiceType="specialUse" />
+             android:foregroundServiceType="specialUse">
+        <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                  android:value="Imports the user's existing SMS/MMS database during first-run setup"/>
+    </service>
     <service android:enabled="true"
              android:name=".service.KeyCachingService"
-             android:foregroundServiceType="specialUse" />
+             android:foregroundServiceType="specialUse">
+        <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                  android:value="Keeps the encryption key cached while the app is unlocked"/>
+    </service>
 
     <service android:name=".service.QuickResponseService"
              android:permission="android.permission.SEND_RESPOND_VIA_MESSAGE"
