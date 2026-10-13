@@ -134,7 +134,7 @@ public class ApplicationMigrationService extends Service
   private NotificationCompat.Builder initializeBackgroundNotification() {
     NotificationCompat.Builder builder = new NotificationCompat.Builder(this, NotificationChannels.OTHER);
 
-    builder.setSmallIcon(R.mipmap.ic_launcher);
+    builder.setSmallIcon(R.drawable.icon_notification);
     builder.setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
     builder.setContentTitle(getString(R.string.ApplicationMigrationService_importing_text_messages));
     builder.setContentText(getString(R.string.ApplicationMigrationService_import_in_progress));
