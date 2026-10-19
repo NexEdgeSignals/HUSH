@@ -246,6 +246,10 @@
     <string name="ExportFragment_export_encrypted_backup">Export encrypted backup?</string>
     <string name="ExportFragment_this_will_export_your_encrypted_keys_settings_and_messages">This will export your encrypted keys, settings, and messages to storage.</string>
     <string name="ExportFragment_exporting_keys_settings_and_messages">Exporting encrypted keys, settings, and messages…</string>
+    <string name="ExportFragment_encrypted_backup_without_passphrase_title">Backup not fully protected</string>
+    <string name="ExportFragment_warning_encrypted_backup_no_passphrase">A passphrase is not set. This backup contains your encryption keys, so anyone who obtains the backup file could restore it on another phone and read your messages. You can enable a passphrase in Settings, under App protection. Export anyway?</string>
+    <string name="ExportFragment_export_anyway">Export anyway</string>
+    <string name="ExportFragment_warning_plaintext_export_file">Warning, this will export the contents of your HUSH messages to storage in plaintext (readable by anyone) as the file \"HushPlaintextBackup.xml\" in the root of your storage.</string>
 
     <!-- GroupCreateActivity -->
     <string name="GroupCreateActivity_actionbar_title">New group</string>
@@ -284,6 +288,16 @@
     <string name="ImportFragment_import_complete">Import complete!</string>
     <string name="ImportFragment_restoring_encrypted_backup">Restoring encrypted backup…</string>
     <string name="ImportFragment_no_encrypted_backup_found">No encrypted backup found!</string>
+    <string name="ImportFragment_choose_backup_title">Choose a backup</string>
+    <string name="ImportFragment_choose_backup_message">Two backups were found. Please choose the one to restore.</string>
+    <string name="ImportFragment_backup_choice_entry">%1$s — saved %2$s</string>
+    <string name="ImportFragment_backup_choice_legacy">%1$s (original Silence) — saved %2$s</string>
+    <string name="ImportFragment_backup_newer_version">This backup was created by a newer version of the app and cannot be restored. Please update HUSH first.</string>
+    <string name="ImportFragment_backup_failed">Backup failed. Please try again.</string>
+    <string name="ImportExportFragment_all_files_access_title">All files access needed</string>
+    <string name="ImportExportFragment_all_files_access_explanation">HUSH needs the \"All files access\" permission to save backups to, and restore backups from, its own folder (HushExport) on your storage. Your messages stay encrypted inside HUSH. HUSH only uses its own backup folder, and Silence\'s old backup folder if you choose to restore from it.</string>
+    <string name="ImportExportFragment_open_settings">Open settings</string>
+    <string name="ImportExportFragment_all_files_access_denied">Backup and restore need the \"All files access\" permission. HUSH keeps working normally, but backup and restore stay unavailable.</string>
     <string name="ImportExportFragment_silence_needs_the_sms_permission_in_order_to_import_sms_messages">HUSH needs the SMS permission in order to import SMS messages, but it has been permanently denied. Please continue to app settings, select \"Permissions\", and enable \"SMS\".</string>
     <string name="ImportExportFragment_silence_needs_the_sms_permission_in_order_to_import_sms_messages_toast">HUSH needs the SMS permission in order to import SMS messages</string>
     <string name="ImportExportFragment_silence_needs_the_storage_permission_in_order_to_read_from_external_storage_but_it_has_been_permanently_denied">HUSH needs the Storage permission in order to read from external storage, but it has been permanently denied. Please continue to app settings, select \"Permissions\", then enable \"Storage\".</string>

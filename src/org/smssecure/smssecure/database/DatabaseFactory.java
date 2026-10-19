@@ -81,7 +81,7 @@ public class DatabaseFactory {
    * downgrade when XMPP transport will be included in unstable branch.
    */
   private static final int INTRODUCED_XMPP_TRANSPORT                       = 32;
-  private static final int DATABASE_VERSION                                = 31;
+  public static final int DATABASE_VERSION                                = 31;
 
   private static final String DATABASE_NAME    = "messages.db";
   private static final Object lock             = new Object();

@@ -17,13 +17,18 @@
 package org.smssecure.smssecure.database;
 
 import android.content.Context;
-import android.os.Environment;
 import android.util.Log;
+
+import org.smssecure.smssecure.util.BackupPaths;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
 import java.nio.channels.FileChannel;
 
 public class EncryptedBackupExporter {
@@ -35,34 +40,92 @@ public class EncryptedBackupExporter {
     exportDirectory(context, "");
   }
 
-  public static void importFromStorage(Context context) throws NoExternalStorageException, IOException {
-    verifyExternalStorageForImport();
-    importDirectory(context, "");
+  public static void importFromStorage(Context context, File backupDirectory) throws NoExternalStorageException, IOException {
+    verifyExternalStorageForImport(backupDirectory);
+    importDirectory(context, backupDirectory, "");
+  }
+
+  /**
+   * Returns the existing encrypted-backup folders: the HUSH folder first,
+   * then the legacy Silence folder. A folder counts as a backup only when it
+   * contains databases/messages.db. May be empty, one entry, or both.
+   */
+  public static List<File> getAvailableBackupDirectories() {
+    List<File> candidates = new ArrayList<>();
+    candidates.add(BackupPaths.getHushExportDirectory());
+    candidates.add(BackupPaths.getLegacySilenceExportDirectory());
+
+    List<File> available = new ArrayList<>();
+    for (File candidate : candidates) {
+      if (candidate.isDirectory() && new File(candidate, "databases" + File.separator + "messages.db").isFile()) {
+        available.add(candidate);
+      }
+    }
+    return available;
+  }
+
+  /**
+   * Reads the SQLite header "user version" field of the backup's messages.db
+   * (big-endian 4-byte integer at byte offset 60 - the field Android's
+   * SQLiteOpenHelper keeps DATABASE_VERSION in). Returns -1 when the file is
+   * unreadable or its header is not the standard "SQLite format 3" marker -
+   * callers treat -1 as "unknown" and skip the version check.
+   */
+  public static int getBackupDatabaseVersion(File backupDirectory) {
+    File   dbFile = new File(backupDirectory, "databases" + File.separator + "messages.db");
+    InputStream in = null;
+    try {
+      in     = new FileInputStream(dbFile);
+      byte[] header = new byte[64];
+      int    read   = 0;
+
+      while (read < header.length) {
+        int r = in.read(header, read, header.length - read);
+        if (r < 0) return -1;
+        read += r;
+      }
+
+      byte[] sqliteMarker = "SQLite format 3\u0000".getBytes(StandardCharsets.US_ASCII);
+      for (int i = 0; i < sqliteMarker.length; i++) {
+        if (header[i] != sqliteMarker[i]) {
+          Log.w(TAG, "Backup database header is not SQLite - skipping version check");
+          return -1;
+        }
+      }
+
+      return ((header[60] & 0xff) << 24) | ((header[61] & 0xff) << 16) | ((header[62] & 0xff) << 8) | (header[63] & 0xff);
+    } catch (IOException e) {
+      Log.w(TAG, "Could not read backup database version", e);
+      return -1;
+    } finally {
+      try {
+        if (in != null) in.close();
+      } catch (IOException ignored) {}
+    }
   }
 
   private static String getExportDirectoryPath() {
-    File sdDirectory  = Environment.getExternalStorageDirectory();
-    return sdDirectory.getAbsolutePath() + File.separator + "SilenceExport";
+    return BackupPaths.getHushExportDirectory().getAbsolutePath();
   }
 
   private static void verifyExternalStorageForExport() throws NoExternalStorageException {
-    if (!Environment.getExternalStorageDirectory().canWrite())
+    if (!BackupPaths.getExternalStorageRoot().canWrite())
       throw new NoExternalStorageException();
 
     String exportDirectoryPath = getExportDirectoryPath();
     File exportDirectory       = new File(exportDirectoryPath);
 
     if (!exportDirectory.exists())
-      exportDirectory.mkdir();
+      exportDirectory.mkdirs();
   }
 
-  private static void verifyExternalStorageForImport() throws NoExternalStorageException {
-    if (!Environment.getExternalStorageDirectory().canRead()) {
+  private static void verifyExternalStorageForImport(File backupDirectory) throws NoExternalStorageException {
+    if (!BackupPaths.getExternalStorageRoot().canRead()) {
       Log.w(TAG, "Cannot get external storage directory!");
       throw new NoExternalStorageException();
     }
-    if (!new File(getExportDirectoryPath()).exists()) {
-      Log.w(TAG, "Cannot get export directory path \"" + getExportDirectoryPath() + "\"!");
+    if (!backupDirectory.exists()) {
+      Log.w(TAG, "Cannot get backup directory \"" + backupDirectory.getAbsolutePath() + "\"!");
       throw new NoExternalStorageException();
     }
   }
@@ -109,8 +172,8 @@ public class EncryptedBackupExporter {
     }
   }
 
-  private static void importDirectory(Context context, String directoryName) throws IOException {
-    File directory       = new File(getExportDirectoryPath() + File.separator + directoryName);
+  private static void importDirectory(Context context, File backupDirectory, String directoryName) throws IOException {
+    File directory       = new File(backupDirectory.getAbsolutePath() + File.separator + directoryName);
     File importDirectory = new File(context.getFilesDir().getParent() + File.separator + directoryName);
 
     if (directory.exists() && directory.isDirectory()) {
@@ -123,7 +186,7 @@ public class EncryptedBackupExporter {
           File localFile = new File(importDirectory.getAbsolutePath() + File.separator + exportedFile.getName());
           migrateFile(exportedFile, localFile);
         } else if (exportedFile.isDirectory()) {
-          importDirectory(context, directoryName + File.separator + exportedFile.getName());
+          importDirectory(context, backupDirectory, directoryName + File.separator + exportedFile.getName());
         }
       }
     }

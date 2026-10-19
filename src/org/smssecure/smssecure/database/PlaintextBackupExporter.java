@@ -7,7 +7,6 @@ import android.os.Environment;
 import org.smssecure.smssecure.crypto.MasterSecret;
 import org.smssecure.smssecure.database.model.SmsMessageRecord;
 
-import java.io.File;
 import java.io.IOException;
 
 public class PlaintextBackupExporter {
@@ -25,8 +24,7 @@ public class PlaintextBackupExporter {
   }
 
   private static String getPlaintextExportDirectoryPath() {
-    File sdDirectory = Environment.getExternalStorageDirectory();
-    return sdDirectory.getAbsolutePath() + File.separator + "SilencePlaintextBackup.xml";
+    return org.smssecure.smssecure.util.BackupPaths.getHushPlaintextBackupFile().getAbsolutePath();
   }
 
   private static void exportPlaintext(Context context, MasterSecret masterSecret)
