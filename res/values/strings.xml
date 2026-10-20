@@ -288,10 +288,9 @@
     <string name="ImportFragment_import_complete">Import complete!</string>
     <string name="ImportFragment_restoring_encrypted_backup">Restoring encrypted backup…</string>
     <string name="ImportFragment_no_encrypted_backup_found">No encrypted backup found!</string>
-    <string name="ImportFragment_choose_backup_title">Choose a backup</string>
-    <string name="ImportFragment_choose_backup_message">Two backups were found. Please choose the one to restore.</string>
-    <string name="ImportFragment_backup_choice_entry">%1$s — saved %2$s</string>
-    <string name="ImportFragment_backup_choice_legacy">%1$s (original Silence) — saved %2$s</string>
+    <string name="ImportFragment_choose_backup_title">Choose a backup to restore</string>
+    <string name="ImportFragment_backup_choice_entry">HUSH backup (%1$s) — newest file %2$s</string>
+    <string name="ImportFragment_backup_choice_legacy">Silence backup (%1$s) — newest file %2$s</string>
     <string name="ImportFragment_backup_newer_version">This backup was created by a newer version of the app and cannot be restored. Please update HUSH first.</string>
     <string name="ImportFragment_backup_failed">Backup failed. Please try again.</string>
     <string name="ImportExportFragment_all_files_access_title">All files access needed</string>

@@ -32,6 +32,7 @@ import org.smssecure.smssecure.util.StoragePermissions;
 import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -220,6 +221,10 @@ public class ImportExportFragment extends Fragment {
       return;
     }
 
+    // Newest backup first so the most likely choice is the top row.
+    Collections.sort(directories, (a, b) -> Long.compare(getNewestFileTime(b),
+                                                         getNewestFileTime(a)));
+
     CharSequence[] labels = new CharSequence[directories.size()];
     for (int i = 0; i < directories.size(); i++) {
       labels[i] = buildBackupChoiceLabel(directories.get(i));
@@ -228,7 +233,6 @@ public class ImportExportFragment extends Fragment {
     AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
     builder.setIconAttribute(R.attr.dialog_info_icon);
     builder.setTitle(R.string.ImportFragment_choose_backup_title);
-    builder.setMessage(R.string.ImportFragment_choose_backup_message);
     builder.setItems(labels, (dialog, which) -> confirmRestoreEncryptedBackup(directories.get(which)));
     builder.setNegativeButton(R.string.ImportFragment_cancel, null);
     builder.show();
@@ -236,12 +240,29 @@ public class ImportExportFragment extends Fragment {
 
   private CharSequence buildBackupChoiceLabel(File directory) {
     DateFormat format = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT);
-    String date       = format.format(new Date(directory.lastModified()));
+    String date       = format.format(new Date(getNewestFileTime(directory)));
 
     if (BackupPaths.isLegacySilenceDirectory(directory)) {
       return getString(R.string.ImportFragment_backup_choice_legacy, directory.getName(), date);
     }
     return getString(R.string.ImportFragment_backup_choice_entry, directory.getName(), date);
+  }
+
+  /**
+   * Newest file timestamp inside the backup folder (recursive). The folder's
+   * own lastModified is unreliable: messages.db sits one level down, so
+   * rewrites bump databases/, not the backup root.
+   */
+  private static long getNewestFileTime(File root) {
+    long newest = 0L;
+    File[] children = root.listFiles();
+    if (children != null) {
+      for (File child : children) {
+        long time = child.isDirectory() ? getNewestFileTime(child) : child.lastModified();
+        newest = Math.max(newest, time);
+      }
+    }
+    return newest > 0L ? newest : root.lastModified();
   }
 
   @SuppressWarnings("CodeBlock2Expr")
